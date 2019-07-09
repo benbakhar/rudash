@@ -6,7 +6,11 @@ Gem::Specification.new do |s|
     s.summary = %q{rudash is the best Lodash utility ever}
     s.files = [
         "lib/rudash.rb",
-        "lib/map.rb"
+        "lib/map.rb",
+        "lib/isNil.rb",
+        "lib/filter.rb",
+        "lib/some.rb",
+        "lib/every.rb"
     ]
     s.require_paths = ["lib"]
   end

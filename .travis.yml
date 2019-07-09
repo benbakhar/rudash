@@ -3,4 +3,7 @@ sudo: false
 rvm:
   - 2.2
 gemfile: Gemfile
-script: ruby ./test_runner.rb
+script:
+  - gem build rudash.gemspec
+  - gem install rudash-0.0.1.gem
+  - ruby ./test_runner.rb

@@ -11,7 +11,8 @@ Gem::Specification.new do |s|
         "lib/filter.rb",
         "lib/some.rb",
         "lib/every.rb",
-        "lib/find.rb"
+        "lib/find.rb",
+        "lib/concat.rb"
     ]
     s.require_paths = ["lib"]
   end

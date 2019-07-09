@@ -5,6 +5,7 @@ require 'filter.rb'
 require 'some.rb'
 require 'every.rb'
 require 'find.rb'
+require 'concat.rb'
 
 class Rudash
     extend Map
@@ -13,4 +14,5 @@ class Rudash
     extend Some
     extend Every
     extend Find
+    extend Concat
 end

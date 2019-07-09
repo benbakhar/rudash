@@ -7,6 +7,7 @@ require 'every.rb'
 require 'find.rb'
 require 'concat.rb'
 require 'findLast.rb'
+require 'includes.rb'
 
 class Rudash
     extend Map
@@ -17,4 +18,5 @@ class Rudash
     extend Find
     extend Concat
     extend FindLast
+    extend Includes
 end

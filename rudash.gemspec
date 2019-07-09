@@ -13,7 +13,8 @@ Gem::Specification.new do |s|
         "lib/every.rb",
         "lib/find.rb",
         "lib/concat.rb",
-        "lib/findLast.rb"
+        "lib/findLast.rb",
+        "lib/includes.rb"
     ]
     s.require_paths = ["lib"]
   end

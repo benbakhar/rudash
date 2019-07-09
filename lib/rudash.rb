@@ -4,6 +4,7 @@ require 'isNil.rb'
 require 'filter.rb'
 require 'some.rb'
 require 'every.rb'
+require 'find.rb'
 
 class Rudash
     extend Map
@@ -11,4 +12,5 @@ class Rudash
     extend Filter
     extend Some
     extend Every
+    extend Find
 end

@@ -10,7 +10,8 @@ Gem::Specification.new do |s|
         "lib/isNil.rb",
         "lib/filter.rb",
         "lib/some.rb",
-        "lib/every.rb"
+        "lib/every.rb",
+        "lib/find.rb"
     ]
     s.require_paths = ["lib"]
   end

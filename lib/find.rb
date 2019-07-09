@@ -1,12 +1,12 @@
 require 'filter.rb'
 
-module Every
+module Find
     extend Filter
-    def every
+    def find
         someProc = -> (array, filter) {
             filteredArr = self.filter[array, filter]
             
-            filteredArr.length == array.length
+            filteredArr[0]
         }
 
         someProc

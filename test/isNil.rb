@@ -1,5 +1,12 @@
 require 'rudash'
+require 'test/unit'
 
-result = Rudash.isNil[1]
+class IsNilTest < Test::Unit::TestCase
+    def test_nil
+        assert_equal Rudash.isNil[nil], true
+    end
 
-p result
+    def test_not_nil
+        assert_equal Rudash.isNil[0], false
+    end
+end

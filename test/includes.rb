@@ -1,25 +1,32 @@
 require 'rudash'
+require 'test/unit'
 
-isEven = -> (value) { value % 2 === 0 }
+class IncludesTest < Test::Unit::TestCase
+    def test_match_even_numbers
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.includes[[1,2,3,4], isEven]
+        assert_equal result, true
+    end
 
-result = Rudash.includes[[1,2,3,4], isEven]
+    def test_mismatch_odd_numbers
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.includes[[1,3,5,7], isEven]
+        assert_equal result, false
+    end
 
-p result
+    def test_nil_params
+        result = Rudash.includes[[1,3,5,7], nil]
+        assert_equal result, false
+    end
 
-result2 = Rudash.includes[[1,3,5,7], isEven]
-
-p result2
-
-result3 = Rudash.includes[[1,3,5,7], nil]
-
-p result3
-
-persons = [
-    { name: 'islam', sex: 'male' },
-    { name: 'sabel', sex: 'female' },
-    { name: 'ruth', sex: 'female' }
-]
-
-result4 = Rudash.includes[persons, { sex: 'male' }]
-
-p result4
+    def test_persons_hashes
+        persons = [
+            { name: 'islam', sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'ruth', sex: 'female' }
+        ]
+        
+        result = Rudash.includes[persons, { sex: 'male' }]
+        assert_equal result, true
+    end
+end

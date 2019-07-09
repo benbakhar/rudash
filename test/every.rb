@@ -1,25 +1,32 @@
 require 'rudash'
+require 'test/unit'
 
-isEven = -> (value) { value % 2 === 0 }
+class EveryTest < Test::Unit::TestCase
+    def test_mismatch_even_numbers
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.every[[1,2,3,4], isEven]
+        assert_equal result, false
+    end
 
-result = Rudash.every[[1,2,3,4], isEven]
+    def test_match_odd_numbers
+        isOdd = -> (value) { value % 2 != 0 }
+        result = Rudash.every[[1,3,5,7], isOdd]
+        assert_equal result, true
+    end
 
-p result
+    def test_nil_params
+        result = Rudash.every[[1,3,5,7], nil]
+        assert_equal result, false
+    end
 
-result2 = Rudash.every[[2,4,6,8], isEven]
-
-p result2
-
-result3 = Rudash.every[[1,3,5,7], nil]
-
-p result3
-
-persons = [
-    { name: 'islam', sex: 'male' },
-    { name: 'sabel', sex: 'female' },
-    { name: 'ruth', sex: 'female' }
-]
-
-result4 = Rudash.every[persons, { sex: 'male' }]
-
-p result4
+    def test_persons_hashes
+        persons = [
+            { name: 'islam', sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'ruth', sex: 'female' }
+        ]
+        
+        result = Rudash.every[persons, { sex: 'male' }]
+        assert_equal result, false
+    end
+end

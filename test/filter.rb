@@ -1,21 +1,28 @@
 require 'rudash'
+require 'test/unit'
 
-isEven = -> (value) { value % 2 === 0 }
+class FilterTest < Test::Unit::TestCase
+    def test_filter_evens
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.filter[[1,2,3,4], isEven]
+        assert_equal result, [2,4]
+    end
 
-result = Rudash.filter[[1,2,3,4], isEven]
+    def test_filter_hashes_by_hash
+        persons = [
+            { name: 'islam', sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'ruth', sex: 'female' }
+        ]
+        result = Rudash.filter[persons, { sex: 'female' }]
+        assert_equal result, [
+            { name: 'sabel', sex: 'female' },
+            { name: 'ruth', sex: 'female' }
+        ]
+    end
 
-p result
-
-persons = [
-    { name: 'islam', sex: 'male' },
-    { name: 'sabel', sex: 'female' },
-    { name: 'ruth', sex: 'female' }
-]
-
-result2 = Rudash.filter[persons, { sex: 'female', name: 'sabel' }]
-
-p result2
-
-result3 = Rudash.filter[nil, nil]
-
-p result3
+    def test_nil_params
+        result = Rudash.filter[nil, nil]
+        assert_equal result, []
+    end
+end

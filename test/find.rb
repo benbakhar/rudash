@@ -1,25 +1,32 @@
 require 'rudash'
+require 'test/unit'
 
-isEven = -> (value) { value % 2 === 0 }
+class FindTest < Test::Unit::TestCase
+    def test_match_even_numbers
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.find[[1,2,3,4], isEven]
+        assert_equal result, 2
+    end
 
-result = Rudash.find[[1,2,3,4], isEven]
+    def test_mismatch_odd_numbers
+        isEven = -> (value) { value % 2 === 0 }
+        result = Rudash.find[[1,3,5,7], isEven]
+        assert_equal result, nil
+    end
 
-p result
+    def test_nil_params
+        result = Rudash.find[[1,3,5,7], nil]
+        assert_equal result, nil
+    end
 
-result2 = Rudash.find[[1,3,5,7], isEven]
-
-p result2
-
-result3 = Rudash.find[[1,3,5,7], nil]
-
-p result3
-
-persons = [
-    { name: 'islam', sex: 'male' },
-    { name: 'sabel', sex: 'female' },
-    { name: 'ruth', sex: 'female' }
-]
-
-result4 = Rudash.find[persons, { sex: 'female' }]
-
-p result4
+    def test_persons_hashes
+        persons = [
+            { name: 'islam', sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'ruth', sex: 'female' }
+        ]
+        
+        result = Rudash.find[persons, { sex: 'female' }]
+        assert_equal result, { name: 'sabel', sex: 'female' }
+    end
+end

@@ -1,4 +1,3 @@
-gem 'test-unit'
 require 'rudash'
 require 'test/unit'
 

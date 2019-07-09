@@ -17,4 +17,5 @@ Gem::Specification.new do |s|
         "lib/includes.rb"
     ]
     s.require_paths = ["lib"]
+    s.metadata = { "source_code_uri" => "https://github.com/Attrash-Islam/rudash" }
   end

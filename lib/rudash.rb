@@ -10,6 +10,7 @@ require 'findLast.rb'
 require 'includes.rb'
 require 'reduce.rb'
 require 'reduceRight.rb'
+require 'reject.rb'
 
 class Rudash
     extend Map
@@ -23,4 +24,5 @@ class Rudash
     extend Includes
     extend Reduce
     extend ReduceRight
+    extend Reject
 end

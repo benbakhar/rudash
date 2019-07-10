@@ -4,7 +4,7 @@ module Filter
     extend IsNil
     def filter
         filterProc = -> (array, filter) {
-            if self.isNil[array] or self.isNil[filter]
+            if !array.is_a?(Array) or self.isNil[filter]
                 return []
             end
 

@@ -2,9 +2,8 @@ language: ruby
 sudo: false
 rvm:
   - 2.2.7
-# gemfile: Gemfile
+gemfile: Gemfile
 script:
-  - bundle install
   - gem build rudash
   - gem install rudash
   - ruby ./test-runner.rb

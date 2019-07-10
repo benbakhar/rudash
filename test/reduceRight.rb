@@ -4,7 +4,6 @@ require 'test/unit'
 class ReduceRightTest < Test::Unit::TestCase
     def test_sum_reducer
         sumer = -> (acc, current) {
-            p current
             acc + current
         }
 

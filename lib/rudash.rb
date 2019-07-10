@@ -11,6 +11,7 @@ require 'includes.rb'
 require 'reduce.rb'
 require 'reduceRight.rb'
 require 'reject.rb'
+require 'compact.rb'
 
 class Rudash
     extend Map
@@ -25,4 +26,5 @@ class Rudash
     extend Reduce
     extend ReduceRight
     extend Reject
+    extend Compact
 end

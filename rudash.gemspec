@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
         "lib/reduceRight.rb",
         "lib/reject.rb",
         "lib/compact.rb",
-        "lib/head.rb"
+        "lib/head.rb",
+        "lib/last.rb"
     ]
     s.require_paths = ["lib"]
     s.metadata = { "source_code_uri" => "https://github.com/Attrash-Islam/rudash" }

@@ -4,6 +4,6 @@ rvm:
   - 2.2.7
 gemfile: Gemfile
 script:
-  - gem build rudash.gemspec
-  - gem install rudash-0.0.1.gem
+  - gem build rudash
+  - gem install rudash
   - ruby ./test-runner.rb

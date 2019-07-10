@@ -14,6 +14,7 @@ require 'reject.rb'
 require 'compact.rb'
 require 'head.rb'
 require 'last.rb'
+require 'tail.rb'
 
 class Rudash
     extend Map
@@ -31,4 +32,5 @@ class Rudash
     extend Compact
     extend Head
     extend Last
+    extend Tail
 end

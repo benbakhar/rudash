@@ -14,7 +14,8 @@ Gem::Specification.new do |s|
         "lib/find.rb",
         "lib/concat.rb",
         "lib/findLast.rb",
-        "lib/includes.rb"
+        "lib/includes.rb",
+        "lib/reduce.rb"
     ]
     s.require_paths = ["lib"]
     s.metadata = { "source_code_uri" => "https://github.com/Attrash-Islam/rudash" }

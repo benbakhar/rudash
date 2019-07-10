@@ -6,5 +6,4 @@ gemfile: Gemfile
 script:
   - gem build rudash.gemspec
   - gem install rudash-0.0.1.gem
-  - ruby ./test_runner.rb
-  - gem list test-unit
+  - ruby ./test-runner.rb

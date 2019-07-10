@@ -9,6 +9,7 @@ require 'concat.rb'
 require 'findLast.rb'
 require 'includes.rb'
 require 'reduce.rb'
+require 'reduceRight.rb'
 
 class Rudash
     extend Map
@@ -21,4 +22,5 @@ class Rudash
     extend FindLast
     extend Includes
     extend Reduce
+    extend ReduceRight
 end

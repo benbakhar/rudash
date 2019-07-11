@@ -9,6 +9,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  power_assert (= 1.1.4)
   test-unit
 
 BUNDLED WITH

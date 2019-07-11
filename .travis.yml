@@ -6,4 +6,4 @@ gemfile: Gemfile
 script:
   - gem build rudash
   - gem install rudash
-  - bundle exec ruby ./test-runner.rb
+  - ruby ./test-runner.rb

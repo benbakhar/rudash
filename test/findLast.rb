@@ -2,6 +2,10 @@ require 'rudash'
 require 'test/unit'
 
 class FindLastTest < Test::Unit::TestCase
+    def test_ruby_alias
+        assert_nothing_raised do R_.find_last end
+    end
+
     def test_match_even_numbers
         isEven = -> (value) { value % 2 === 0 }
         result = R_.findLast[[1,2,3,4], isEven]

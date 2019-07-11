@@ -29,7 +29,5 @@ module Filter
 
             array.select { |x| filter[x] }
         }
-
-        filterProc
     end
 end

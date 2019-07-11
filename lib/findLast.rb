@@ -8,7 +8,5 @@ module FindLast
             
             filteredArr[filteredArr.length - 1]
         }
-
-        findLastProc
     end
 end

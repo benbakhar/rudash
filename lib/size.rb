@@ -8,7 +8,5 @@ module Size
 
             something.size
         }
-
-        sizeProc
     end
 end

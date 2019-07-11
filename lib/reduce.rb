@@ -18,7 +18,5 @@ module Reduce
                     return nil
             end
         }
-
-        reduceProc
     end
 end

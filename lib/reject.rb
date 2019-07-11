@@ -13,7 +13,5 @@ module Reject
             filteredItems = self.filter[array, filter]
             array - filteredItems
         }
-
-        rejectProc
     end
 end

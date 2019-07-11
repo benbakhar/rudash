@@ -8,7 +8,5 @@ module Every
             
             filteredArr.length == array.length
         }
-
-        everyProc
     end
 end

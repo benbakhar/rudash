@@ -7,7 +7,5 @@ module Head
 
             array.first
         }
-
-        headProc
     end
 end

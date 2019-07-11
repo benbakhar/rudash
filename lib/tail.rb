@@ -7,7 +7,5 @@ module Tail
 
             array[1..-1] || []
         }
-
-        tailProc
     end
 end

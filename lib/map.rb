@@ -3,7 +3,5 @@ module Map
         mapProc = -> (array, mapperFn) {
             array.map { |value| mapperFn[value] }
         }
-
-        mapProc
     end
 end

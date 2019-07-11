@@ -12,7 +12,5 @@ module Compact
 
             self.reject[array, self.isNil]
         }
-
-        compactProc
     end
 end

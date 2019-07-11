@@ -8,7 +8,5 @@ module Find
             
             filteredArr[0]
         }
-
-        findProc
     end
 end

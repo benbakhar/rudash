@@ -8,7 +8,5 @@ module Some
             
             filteredArr.length != 0
         }
-
-        someProc
     end
 end

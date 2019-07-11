@@ -11,7 +11,5 @@ module Concat
                 return self.concat[[object1], [object2]]
             end
         }
-
-        concatProc
     end
 end

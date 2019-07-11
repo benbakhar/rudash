@@ -13,7 +13,5 @@ module ReduceRight
             reversedArray = array.reverse
             self.reduce[reversedArray, *args[1..-1]]
         }
-
-        reduceRightProc
     end
 end

@@ -6,10 +6,6 @@ module Flip
 
                 function[*reveresedArgs]
             }
-
-            flippedFunction
         }
-
-        flipProc
     end
 end

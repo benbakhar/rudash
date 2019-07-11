@@ -7,7 +7,5 @@ module Last
 
             array.last
         }
-
-        lastProc
     end
 end

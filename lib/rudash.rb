@@ -15,6 +15,7 @@ require 'compact.rb'
 require 'head.rb'
 require 'last.rb'
 require 'tail.rb'
+require 'size.rb'
 
 class R_
     extend Map
@@ -33,4 +34,5 @@ class R_
     extend Head
     extend Last
     extend Tail
+    extend Size
 end

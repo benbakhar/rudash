@@ -4,7 +4,7 @@ require 'test/unit'
 class FilterTest < Test::Unit::TestCase
     def test_filter_evens
         isEven = -> (value) { value % 2 === 0 }
-        result = Rudash.filter[[1,2,3,4], isEven]
+        result = R_.filter[[1,2,3,4], isEven]
         assert_equal result, [2,4]
     end
 
@@ -14,7 +14,7 @@ class FilterTest < Test::Unit::TestCase
             { name: 'sabel', sex: 'female' },
             { name: 'ruth', sex: 'female' }
         ]
-        result = Rudash.filter[persons, { sex: 'female' }]
+        result = R_.filter[persons, { sex: 'female' }]
         assert_equal result, [
             { name: 'sabel', sex: 'female' },
             { name: 'ruth', sex: 'female' }
@@ -22,7 +22,7 @@ class FilterTest < Test::Unit::TestCase
     end
 
     def test_nil_params
-        result = Rudash.filter[nil, nil]
+        result = R_.filter[nil, nil]
         assert_equal result, []
     end
 end

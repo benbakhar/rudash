@@ -7,6 +7,6 @@ class ReduceTest < Test::Unit::TestCase
             acc + current
         }
 
-        assert_equal Rudash.reduce[[1, 2, 3, 4, 5], sumer], 15
+        assert_equal R_.reduce[[1, 2, 3, 4, 5], sumer], 15
     end
 end

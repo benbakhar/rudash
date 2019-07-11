@@ -16,7 +16,7 @@ require 'head.rb'
 require 'last.rb'
 require 'tail.rb'
 
-class Rudash
+class R_
     extend Map
     extend IsNil
     extend Filter

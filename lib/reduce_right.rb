@@ -4,10 +4,6 @@ module ReduceRight
     extend Reduce
 
     def reduce_right
-        self.reduceRight
-    end
-
-    def reduceRight
         reduceRightProc = -> (*args) {
             array = args[0]
 

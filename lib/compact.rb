@@ -1,5 +1,5 @@
 require 'reject.rb'
-require 'isNil.rb'
+require 'is_nil.rb'
 
 module Compact
     extend Reject
@@ -10,7 +10,7 @@ module Compact
                 return []
             end
 
-            self.reject[array, self.isNil]
+            self.reject[array, self.is_nil]
         }
     end
 end

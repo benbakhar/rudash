@@ -1,10 +1,10 @@
-require 'isNil.rb'
+require 'is_nil.rb'
 
 module Filter
     extend IsNil
     def filter
         filterProc = -> (array, filter) {
-            if !array.is_a?(Array) or self.isNil[filter]
+            if !array.is_a?(Array) or self.is_nil[filter]
                 return []
             end
 

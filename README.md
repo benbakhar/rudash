@@ -2,6 +2,29 @@
 
 The <a href="https://lodash.com">Lodash</a> popular JavaScript library exported as a Gem for Ruby developers.
 
+## Installation
+```
+gem install rudash
+```
+
+### Philosophy of Rudash
+Rudash was written by a JavaScript developer to help JavaScript developers integrate into the ruby world without knowing so much. Lodash JavaScript library is the most popular library ever with wide adoption and most of the JavaScripters use the utility functions in it almost all the time.
+
+The main Philosophy of Rudash it to be aligned with Lodash API while using Proc (lambda) functions.
+
+### Usage
+```ruby
+require 'rudash'
+
+double = -> (value) { value * 2 }
+R_.map[[1,2,3], double] # => [2,4,6]
+
+isEven = -> (value) { value % 2 === 0 }
+R_.filter[[1,2,3,4], isEven] # => [2,4]
+```
+
+# API
+
 ## `“Array” Methods`
 
 ### <a id="_compact-array"></a>`R_.compact[array]`

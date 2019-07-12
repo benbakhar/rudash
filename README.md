@@ -1,5 +1,7 @@
 # Rudash
 
+The <a href="https://lodash.com">Lodash</a> popular JavaScript library exported as a Gem for Ruby developers.
+
 ## `“Array” Methods`
 
 ### <a id="_compact-array"></a>`R_.compact[array]`

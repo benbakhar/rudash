@@ -4,10 +4,10 @@ module FindLast
     extend Filter
 
     def find_last
-        findLastProc = -> (array, filter) {
-            filteredArr = self.filter[array, filter]
+        find_last_proc = -> (array, filter) {
+            filtered_arr = self.filter[array, filter]
             
-            filteredArr[filteredArr.length - 1]
+            filtered_arr[filtered_arr.length - 1]
         }
     end
 end

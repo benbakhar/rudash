@@ -1,6 +1,6 @@
 module Concat
     def concat
-        concatProc = -> (object1, object2) {
+        concat_proc = -> (object1, object2) {
             if object1.is_a?(Array) and object2.is_a?(Array)
                 return object1 + object2
             elsif object1.is_a?(Array)

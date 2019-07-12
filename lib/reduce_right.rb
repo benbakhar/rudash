@@ -4,15 +4,15 @@ module ReduceRight
     extend Reduce
 
     def reduce_right
-        reduceRightProc = -> (*args) {
+        reduce_right_proc = -> (*args) {
             array = args[0]
 
             if !array.is_a?(Array)
                 return nil
             end
 
-            reversedArray = array.reverse
-            self.reduce[reversedArray, *args[1..-1]]
+            reversed_array = array.reverse
+            self.reduce[reversed_array, *args[1..-1]]
         }
     end
 end

@@ -1,6 +1,6 @@
 module Head
     def head
-        headProc = -> (array) {
+        head_proc = -> (array) {
             if !array.is_a?(Array)
                 return nil
             end

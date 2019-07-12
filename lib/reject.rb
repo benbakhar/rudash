@@ -5,13 +5,13 @@ module Reject
     extend IsNil
     extend Filter
     def reject
-        rejectProc = -> (array, filter) {
+        reject_proc = -> (array, filter) {
             if !array.is_a?(Array) or self.is_nil[filter]
                 return []
             end
 
-            filteredItems = self.filter[array, filter]
-            array - filteredItems
+            filtered_items = self.filter[array, filter]
+            array - filtered_items
         }
     end
 end

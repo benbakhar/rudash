@@ -3,10 +3,10 @@ require 'filter.rb'
 module Find
     extend Filter
     def find
-        findProc = -> (array, filter) {
-            filteredArr = self.filter[array, filter]
+        find_proc = -> (array, filter) {
+            filtered_arr = self.filter[array, filter]
             
-            filteredArr[0]
+            filtered_arr[0]
         }
     end
 end

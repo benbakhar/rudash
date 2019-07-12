@@ -3,10 +3,10 @@ require 'filter.rb'
 module Every
     extend Filter
     def every
-        everyProc = -> (array, filter) {
-            filteredArr = self.filter[array, filter]
+        every_proc = -> (array, filter) {
+            filtered_arr = self.filter[array, filter]
             
-            filteredArr.length == array.length
+            filtered_arr.length == array.length
         }
     end
 end

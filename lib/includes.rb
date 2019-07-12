@@ -3,7 +3,7 @@ require 'some.rb'
 module Includes
     extend Some
     def includes
-        includesProc = -> (array, filter) {
+        includes_proc = -> (array, filter) {
             self.some[array, filter]
         }
     end

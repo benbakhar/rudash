@@ -1,10 +1,10 @@
 module Flip
     def flip
-        flipProc = -> (function) {
-            flippedFunction = -> (*args) {
-                reveresedArgs = args.reverse
+        flip_proc = -> (a_proc) {
+            flipped_proc = -> (*args) {
+                reveresed_args = args.reverse
 
-                function[*reveresedArgs]
+                a_proc[*reveresed_args]
             }
         }
     end

@@ -5,7 +5,7 @@ module Compact
     extend Reject
     extend IsNil
     def compact
-        compactProc = -> (array) {
+        compact_proc = -> (array) {
             if !array.is_a?(Array)
                 return []
             end

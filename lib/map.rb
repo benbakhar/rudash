@@ -1,6 +1,6 @@
 module Map
     def map
-        mapProc = -> (array, mapperFn) {
+        map_proc = -> (array, mapperFn) {
             array.map { |value| mapperFn[value] }
         }
     end

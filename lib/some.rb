@@ -3,10 +3,10 @@ require 'filter.rb'
 module Some
     extend Filter
     def some
-        someProc = -> (array, filter) {
-            filteredArr = self.filter[array, filter]
+        some_proc = -> (array, filter) {
+            filtered_arr = self.filter[array, filter]
             
-            filteredArr.length != 0
+            filtered_arr.length != 0
         }
     end
 end

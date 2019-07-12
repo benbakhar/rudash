@@ -7,6 +7,12 @@ class ConcatTest < Test::Unit::TestCase
         assert_equal result, [1,2,3,4]
     end
 
+    # TODO
+    # def test_concat_multi_arrays
+    #     result = R_.concat[[1,2,3], [4], [5]]
+    #     assert_equal result, [1,2,3,4,5]
+    # end
+
     def test_concat_nil
         result = R_.concat[[1,2,3], nil]
         assert_equal result, [1,2,3,nil]

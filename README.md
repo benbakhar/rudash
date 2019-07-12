@@ -2,7 +2,7 @@
 
 ## `“Array” Methods`
 
-### <a id="_compact-array"></a>`_.compact(array)`
+### <a id="_compact-array"></a>`R_.compact[array]`
 
 Creates an array with all falsey values removed. *nil* are falsey but [*false*, *0*, and *""*] values are truthy values in ruby.
 
@@ -18,7 +18,7 @@ R_.compact[[1, 0, nil, "islam"]] # [1, 0, "islam"]
 ```
 * * *
 
-### <a id="_concat-array"></a>`_.concat(array, values*)`
+### <a id="_concat-array"></a>`R_.concat[array, values*]`
 
 Creates a new array concatenating array with any additional arrays and/or values.
 

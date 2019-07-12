@@ -1,14 +1,15 @@
+require 'is_nil.rb'
+
 module Concat
+    extend IsNil
+
     def concat
-        concat_proc = -> (object1, object2) {
-            if object1.is_a?(Array) and object2.is_a?(Array)
-                return object1 + object2
-            elsif object1.is_a?(Array)
-                return self.concat[object1, [object2]]
-            elsif object2.is_a?(Array)
-                return self.concat[[object1], object2]
+        concat_proc = -> (head, *values) {
+            head_arr = head.is_a?(Array) ? head : [head]
+            if values.size == 0
+                return head_arr
             else
-                return self.concat[[object1], [object2]]
+                return head_arr + self.concat[*values]
             end
         }
     end

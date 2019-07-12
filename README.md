@@ -17,10 +17,12 @@ The main Philosophy of Rudash it to be aligned with Lodash API with it being nil
 require 'rudash'
 
 double = -> (value) { value * 2 }
-R_.map[[1,2,3], double] # => [2,4,6]
+array = [1,2,3]
+R_.map[array, double] # => [2,4,6]
 
 isEven = -> (value) { value % 2 === 0 }
-R_.filter[[1,2,3,4], isEven] # => [2,4]
+array = [1,2,3,4]
+R_.filter[array, isEven] # => [2,4]
 ```
 
 # API
@@ -39,7 +41,8 @@ Creates an array with all falsey values removed. *nil* are falsey but [*false*, 
 
 #### Example
 ```ruby
-R_.compact[[1, 0, nil, "islam"]] # => [1, 0, "islam"]
+array = [1, 0, nil, "islam"]
+R_.compact[array] # => [1, 0, "islam"]
 ```
 * * *
 
@@ -57,7 +60,10 @@ Creates a new array concatenating array with any additional arrays and/or values
 
 #### Example
 ```ruby
-R_.concat[[1,2,3], [4]] # => [1, 2, 3, 4]
+arr1 = [1,2,3]
+arr2 = [4]
+R_.concat[arr1, arr2] # => [1, 2, 3, 4]
+
 R_.concat[1, { a: 1 }] # => [1, { a: 1 }]
 ```
 * * *
@@ -74,7 +80,10 @@ Gets the first element of array.
 
 #### Example
 ```ruby
-R_.head[[1,2,3]] # => 1
-R_.head[[]] # => nil
+array = [1,2,3]
+R_.head[array] # => 1
+
+empty_array = []
+R_.head[empty_array] # => nil
 ```
 * * *

@@ -10,7 +10,7 @@ gem install rudash
 ### Philosophy of Rudash
 Rudash was written by a JavaScript developer to help JavaScript developers integrate into the ruby world without knowing so much. Lodash JavaScript library is the most popular library ever with wide adoption and most of the JavaScripters use the utility functions in it almost all the time.
 
-The main Philosophy of Rudash it to be aligned with Lodash API while using Proc (lambda) functions.
+The main Philosophy of Rudash it to be aligned with Lodash API with it being nil-safe and type-safe while using Proc (lambda) functions.
 
 ### Usage
 ```ruby
@@ -50,7 +50,7 @@ Creates a new array concatenating array with any additional arrays and/or values
 #### Arguments
 `array` *(Array)*: The array to concatenate.
 
-`values*` *(*)*: The values to concatenate.
+`values*` *(\*)*: The values to concatenate.
 
 #### Returns
 *(Array)*: Returns the new concatenated array.
@@ -70,7 +70,7 @@ Gets the first element of array.
 `array` *(Array)*: The array to query.
 
 #### Returns
-*(*)*: Returns the first element of array.
+*(\*)*: Returns the first element of array.
 
 #### Example
 ```ruby

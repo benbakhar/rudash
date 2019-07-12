@@ -50,7 +50,7 @@ Creates a new array concatenating array with any additional arrays and/or values
 #### Arguments
 `array` *(Array)*: The array to concatenate.
 
-`values*` *(Any value)*: The values to concatenate.
+`values*` *(*)*: The values to concatenate.
 
 #### Returns
 *(Array)*: Returns the new concatenated array.
@@ -59,5 +59,22 @@ Creates a new array concatenating array with any additional arrays and/or values
 ```ruby
 R_.concat[[1,2,3], [4]] # => [1, 2, 3, 4]
 R_.concat[1, { a: 1 }] # => [1, { a: 1 }]
+```
+* * *
+
+### <a id="_head-array"></a>`R_.head[array]`
+
+Gets the first element of array.
+
+#### Arguments
+`array` *(Array)*: The array to query.
+
+#### Returns
+*(*)*: Returns the first element of array.
+
+#### Example
+```ruby
+R_.head[[1,2,3]] # => 1
+R_.head[[]] # => nil
 ```
 * * *

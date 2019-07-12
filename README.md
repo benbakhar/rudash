@@ -4,7 +4,7 @@
 
 ### <a id="_compact-array"></a>`_.compact(array)`
 
-Creates an array with all falsey values removed. *nil* are falsey but *false*, *0*, and *""* values are truthy values in ruby.
+Creates an array with all falsey values removed. *nil* are falsey but [*false*, *0*, and *""*] values are truthy values in ruby.
 
 #### Arguments
 `array` *(Array)*: The array to compact.

@@ -29,7 +29,7 @@ R_.filter[array, isEven] # => [2,4]
 
 ## `“Array” Methods`
 
-### <a id="_compact-array"></a>`R_.compact[array]`
+### <a id="_compact"></a>`R_.compact[array]`
 
 Creates an array with all falsey values removed. *nil* are falsey but [*false*, *0*, and *""*] values are truthy values in ruby.
 
@@ -46,7 +46,7 @@ R_.compact[array] # => [1, 0, "islam"]
 ```
 * * *
 
-### <a id="_concat-array"></a>`R_.concat[array, values*]`
+### <a id="_concat"></a>`R_.concat[array, values*]`
 
 Creates a new array concatenating array with any additional arrays and/or values.
 
@@ -68,7 +68,7 @@ R_.concat[1, { a: 1 }] # => [1, { a: 1 }]
 ```
 * * *
 
-### <a id="_head-array"></a>`R_.head[array]`
+### <a id="_head"></a>`R_.head[array]`
 
 Gets the first element of array.
 
@@ -88,7 +88,7 @@ R_.head[empty_array] # => nil
 ```
 * * *
 
-### <a id="_last-array"></a>`R_.last[array]`
+### <a id="_last"></a>`R_.last[array]`
 
 Gets the last element of array.
 
@@ -108,7 +108,7 @@ R_.last[empty_array] # => nil
 ```
 * * *
 
-### <a id="_tail-array"></a>`R_.tail[array]`
+### <a id="_tail"></a>`R_.tail[array]`
 
 Gets all but the first element of array.
 
@@ -130,7 +130,7 @@ R_.tail[empty_array] # => []
 
 ## `“Collection” Methods`
 
-### <a id="_every-array"></a>`R_.every[array, predicate_proc]`
+### <a id="_every"></a>`R_.every[array, predicate_proc]`
 
 Checks if predicate returns truthy for all elements of array.
 
@@ -154,5 +154,25 @@ persons = [
 ]
         
 R_.every[persons, { sex: 'male' }] # => false
+```
+* * *
+
+## `“Util” Methods`
+
+### <a id="_identity"></a>`R_.identity[value]`
+
+This method returns the first argument it receives.
+
+#### Arguments
+`value` *(\*)*: Any value.
+
+#### Returns
+*(\*)*: Returns value.
+
+#### Example
+```ruby
+R_.identity[0] # => 0
+
+R_.identity[1, 2] # => 1
 ```
 * * *

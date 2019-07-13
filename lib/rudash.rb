@@ -17,6 +17,7 @@ require 'last.rb'
 require 'tail.rb'
 require 'size.rb'
 require 'flip.rb'
+require 'identity.rb'
 
 class R_
     extend Map
@@ -37,4 +38,5 @@ class R_
     extend Tail
     extend Size
     extend Flip
+    extend Identity
 end

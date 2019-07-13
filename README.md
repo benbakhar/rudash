@@ -27,8 +27,6 @@ R_.filter[array, isEven] # => [2,4]
 
 # API
 
-## `“Array” Methods`
-
 ### <a id="_compact-array"></a>`R_.compact[array]`
 
 Creates an array with all falsey values removed. *nil* are falsey but [*false*, *0*, and *""*] values are truthy values in ruby.
@@ -85,5 +83,72 @@ R_.head[array] # => 1
 
 empty_array = []
 R_.head[empty_array] # => nil
+```
+* * *
+
+### <a id="_last-array"></a>`R_.last[array]`
+
+Gets the last element of array.
+
+#### Arguments
+`array` *(Array)*: The array to query.
+
+#### Returns
+*(\*)*: Returns the last element of array.
+
+#### Example
+```ruby
+array = [1,2,3]
+R_.last[array] # => 3
+
+empty_array = []
+R_.last[empty_array] # => nil
+```
+* * *
+
+### <a id="_tail-array"></a>`R_.tail[array]`
+
+Gets all but the first element of array.
+
+#### Arguments
+`array` *(Array)*: The array to query.
+
+#### Returns
+*(Array)*: Returns the slice of array.
+
+#### Example
+```ruby
+array = [1,2,3]
+R_.tail[array] # => [2,3]
+
+empty_array = []
+R_.tail[empty_array] # => []
+```
+* * *
+
+### <a id="_every-array"></a>`R_.every[array, predicate_proc]`
+
+Checks if predicate returns truthy for all elements of array.
+
+#### Arguments
+`array` *(Array)*: The collection to iterate over.
+
+`predicate_proc` *(proc)*: The proc function invoked per iteration.
+
+#### Returns
+*(boolean)*: Returns true if all elements pass the predicate check, else false.
+
+#### Example
+```ruby
+isEven = -> (value) { value % 2 === 0 }
+R_.every[[1,2,3,4], isEven] # => false
+
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'ruth', sex: 'female' }
+]
+        
+R_.every[persons, { sex: 'male' }] # => false
 ```
 * * *

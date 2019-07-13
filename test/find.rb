@@ -23,7 +23,7 @@ class FindTest < Test::Unit::TestCase
         persons = [
             { name: 'islam', sex: 'male' },
             { name: 'sabel', sex: 'female' },
-            { name: 'ruth', sex: 'female' }
+            { name: 'sonia', sex: 'female' }
         ]
         
         result = R_.find[persons, { sex: 'female' }]

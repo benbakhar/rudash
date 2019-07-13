@@ -23,10 +23,10 @@ class FindLastTest < Test::Unit::TestCase
         persons = [
             { name: 'islam', sex: 'male' },
             { name: 'sabel', sex: 'female' },
-            { name: 'ruth', sex: 'female' }
+            { name: 'sonia', sex: 'female' }
         ]
         
         result = R_.find_last[persons, { sex: 'female' }]
-        assert_equal result, { name: 'ruth', sex: 'female' }
+        assert_equal result, { name: 'sonia', sex: 'female' }
     end
 end

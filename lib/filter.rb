@@ -1,17 +1,15 @@
 require 'is_nil.rb'
+require 'identity.rb'
 
 module Filter
     extend IsNil
+    extend Identity
 
     def filter
-        filter_proc = -> (array, filter) {
-            if !array.is_a?(Array) or self.is_nil?[filter]
-                return []
-            end
-
-            if filter.is_a?(Hash)
+        filter_proc = -> (collection, filter = self.identity) {
+            if collection.is_a?(Array) and filter.is_a?(Hash)
                 filtered_arr = []
-                array.each do |v|
+                collection.each do |v|
                     match = true
                     filter.each do |key, value|
                         if (value != v[key])
@@ -26,9 +24,13 @@ module Filter
                 end
 
                 return filtered_arr
+            elsif collection.is_a?(Array)
+                return collection.select.with_index { |x, idx| filter[x, idx] }
+            elsif collection.is_a?(Hash)
+                return collection.select { |k, v| filter[v, k] }
+            else
+                return []
             end
-
-            array.select { |x| filter[x] }
         }
     end
 end

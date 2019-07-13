@@ -150,10 +150,44 @@ R_.every?[[1,2,3,4], is_even] # => false
 persons = [
     { name: 'islam', sex: 'male' },
     { name: 'sabel', sex: 'female' },
-    { name: 'ruth', sex: 'female' }
+    { name: 'sonia', sex: 'female' }
 ]
         
 R_.every?[persons, { sex: 'male' }] # => false
+```
+* * *
+
+### <a id="_filter></a>`R_.filter[collection, predicate_proc = R_.identity]`
+
+Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with two arguments: [value, index|key]
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`predicate_proc` *(proc)*: The function invoked per iteration.
+
+#### Returns
+*(Array)*: Returns the new filtered array.
+
+#### Example
+```ruby
+# Filtering array
+is_even = -> (value, index) { value % 2 === 0 }
+R_.filter[[1,2,3,4], is_even] # => [2,4]
+
+# Filtering array of hashes
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+R_.filter[persons, { sex: 'female' }]
+# => [{ name: 'sabel', sex: 'female' }, { name: 'sonia', sex: 'female' }]
+
+# Filtering hash
+is_even = -> (v, k) { v % 2 === 0 }
+R_.filter[{ a: 1, b: 2, c: 3, d: 4 }, is_even] # => { b: 2, d: 4 }
 ```
 * * *
 

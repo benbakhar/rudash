@@ -4,6 +4,7 @@ require 'is_nil.rb'
 module Compact
     extend Reject
     extend IsNil
+
     def compact
         compact_proc = -> (array) {
             if !array.is_a?(Array)

@@ -2,6 +2,7 @@ require 'is_nil.rb'
 
 module Filter
     extend IsNil
+
     def filter
         filter_proc = -> (array, filter) {
             if !array.is_a?(Array) or self.is_nil?[filter]

@@ -27,6 +27,8 @@ R_.filter[array, isEven] # => [2,4]
 
 # API
 
+## `“Array” Methods`
+
 ### <a id="_compact-array"></a>`R_.compact[array]`
 
 Creates an array with all falsey values removed. *nil* are falsey but [*false*, *0*, and *""*] values are truthy values in ruby.
@@ -125,6 +127,8 @@ empty_array = []
 R_.tail[empty_array] # => []
 ```
 * * *
+
+## `“Collection” Methods`
 
 ### <a id="_every-array"></a>`R_.every[array, predicate_proc]`
 

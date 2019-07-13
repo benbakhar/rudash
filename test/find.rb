@@ -3,13 +3,13 @@ require 'test/unit'
 
 class FindTest < Test::Unit::TestCase
     def test_match_even_numbers
-        is_even = -> (value, index) { value % 2 === 0 }
+        is_even = -> (value) { value % 2 === 0 }
         result = R_.find[[1,2,3,4], is_even]
         assert_equal result, 2
     end
 
     def test_mismatch_odd_numbers
-        is_even = -> (value, index) { value % 2 === 0 }
+        is_even = -> (value) { value % 2 === 0 }
         result = R_.find[[1,3,5,7], is_even]
         assert_equal result, nil
     end

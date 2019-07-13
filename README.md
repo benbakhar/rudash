@@ -20,7 +20,7 @@ double = -> (value) { value * 2 }
 array = [1,2,3]
 R_.map[array, double] # => [2,4,6]
 
-is_even = -> (value, index) { value % 2 === 0 }
+is_even = -> (value) { value % 2 === 0 }
 array = [1,2,3,4]
 R_.filter[array, is_even] # => [2,4]
 ```
@@ -144,7 +144,7 @@ Checks if predicate returns truthy for all elements of array.
 
 #### Example
 ```ruby
-is_even = -> (value, index) { value % 2 === 0 }
+is_even = -> (value) { value % 2 === 0 }
 R_.every?[[1,2,3,4], is_even] # => false
 
 persons = [
@@ -172,7 +172,7 @@ Iterates over elements of collection, returning an array of all elements predica
 #### Example
 ```ruby
 # Filtering array
-is_even = -> (value, index) { value % 2 === 0 }
+is_even = -> (value) { value % 2 === 0 }
 R_.filter[[1,2,3,4], is_even] # => [2,4]
 
 # Filtering array of hashes

@@ -29,9 +29,17 @@ module Filter
 
                 return filtered_arr
             elsif collection.is_a?(Array)
-                return collection.select.with_index { |x, idx| filter[x, idx] }
+                if filter.arity == 1
+                    return collection.select { |x| filter[x] }
+                else
+                    return collection.select.with_index { |x, idx| filter[x, idx] }
+                end
             elsif collection.is_a?(Hash)
-                return collection.select { |k, v| filter[v, k] }
+                if filter.arity == 1
+                    return collection.select { |k, v| filter[v] }
+                else
+                    return collection.select { |k, v| filter[v, k] }
+                end
             else
                 return []
             end

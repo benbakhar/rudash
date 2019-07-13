@@ -2,7 +2,7 @@ require 'filter.rb'
 
 module Some
     extend Filter
-    def some
+    def some?
         some_proc = -> (array, filter) {
             filtered_arr = self.filter[array, filter]
             

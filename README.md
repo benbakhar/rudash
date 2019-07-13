@@ -130,7 +130,7 @@ R_.tail[empty_array] # => []
 
 ## `“Collection” Methods`
 
-### <a id="_every"></a>`R_.every[array, predicate_proc]`
+### <a id="_every"></a>`R_.every?[array, predicate_proc]`
 
 Checks if predicate returns truthy for all elements of array.
 
@@ -145,7 +145,7 @@ Checks if predicate returns truthy for all elements of array.
 #### Example
 ```ruby
 isEven = -> (value) { value % 2 === 0 }
-R_.every[[1,2,3,4], isEven] # => false
+R_.every?[[1,2,3,4], isEven] # => false
 
 persons = [
     { name: 'islam', sex: 'male' },
@@ -153,7 +153,7 @@ persons = [
     { name: 'ruth', sex: 'female' }
 ]
         
-R_.every[persons, { sex: 'male' }] # => false
+R_.every?[persons, { sex: 'male' }] # => false
 ```
 * * *
 

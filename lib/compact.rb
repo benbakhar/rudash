@@ -10,7 +10,7 @@ module Compact
                 return []
             end
 
-            self.reject[array, self.is_nil]
+            self.reject[array, self.is_nil?]
         }
     end
 end

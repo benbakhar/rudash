@@ -4,7 +4,7 @@ module Size
     extend IsNil
     def size
         size_proc = -> (something) {
-            return 0 if self.is_nil[something]
+            return 0 if self.is_nil?[something]
 
             something.size
         }

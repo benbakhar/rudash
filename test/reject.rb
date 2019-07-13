@@ -3,7 +3,7 @@ require 'test/unit'
 
 class RejectTest < Test::Unit::TestCase
     def test_reject_evens
-        is_even = -> (value) { value % 2 === 0 }
+        is_even = -> (value, index) { value % 2 === 0 }
         result = R_.reject[[1,2,3,4], is_even]
         assert_equal result, [1,3]
     end

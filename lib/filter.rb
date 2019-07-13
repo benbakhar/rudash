@@ -1,12 +1,16 @@
 require 'is_nil.rb'
 require 'identity.rb'
+require 'head.rb'
 
 module Filter
     extend IsNil
     extend Identity
+    extend Head
 
     def filter
-        filter_proc = -> (collection, filter = self.identity) {
+        filter_proc = -> (collection, *rest_args) {
+            filter = self.head[rest_args] || self.identity
+
             if collection.is_a?(Array) and filter.is_a?(Hash)
                 filtered_arr = []
                 collection.each do |v|

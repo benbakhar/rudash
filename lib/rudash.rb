@@ -7,7 +7,6 @@ require 'every.rb'
 require 'find.rb'
 require 'concat.rb'
 require 'find_last.rb'
-require 'includes.rb'
 require 'reduce.rb'
 require 'reduce_right.rb'
 require 'reject.rb'
@@ -28,7 +27,6 @@ class R_
     extend Find
     extend Concat
     extend FindLast
-    extend Includes
     extend Reduce
     extend ReduceRight
     extend Reject

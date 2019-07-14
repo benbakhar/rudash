@@ -5,14 +5,15 @@ module ReduceRight
 
     def reduce_right
         reduce_right_proc = -> (*args) {
-            array = args[0]
+            collection = args[0]
 
-            if !array.is_a?(Array)
-                return nil
+            reversed_collection =
+            case collection
+                when Array then collection.reverse
+                when Hash then collection.reverse_each.to_h
             end
 
-            reversed_array = array.reverse
-            self.reduce[reversed_array, *args[1..-1]]
+            self.reduce[reversed_collection, *args[1..-1]]
         }
     end
 end

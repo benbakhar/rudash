@@ -278,6 +278,65 @@ R_.find_last[persons, { sex: 'female' }] # => { name: 'sonia', sex: 'female' }
 ```
 * * *
 
+### <a id="_reduce"></a>`R_.reduce[collection, iteratee_proc = R_.identity, accumulator*]`
+
+Reduces collection to a value which is the accumulated result of running each element in collection thru iteratee, where each successive invocation is supplied the return value of the previous. If accumulator is not given, the first element of collection is used as the initial value. The iteratee is invoked with four arguments:
+(accumulator, value, index|key).
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`iteratee_proc` *(proc)*: The function invoked per iteration.
+
+`accumulator` *(Any)*: The initial value.
+
+#### Returns
+*(\*)*: Returns the accumulated value.
+
+#### Example
+```ruby
+
+sumer = -> (acc, current) {
+    acc + current
+}
+
+R_.reduce[[1, 2, 3, 4, 5], sumer] # => 15
+
+hash = { a: 1, b: 2 }
+hash_sumer = -> (acc, current) { acc + current }
+R_.reduce[hash, hash_sumer, 0] # => 3
+```
+* * *
+
+### <a id="_reduce_right"></a>`R_.reduce_right[collection, iteratee_proc = R_.identity, accumulator*]`
+
+This method is like _.reduce except that it iterates over elements of collection from right to left.
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`iteratee_proc` *(proc)*: The function invoked per iteration.
+
+`accumulator` *(Any)*: The initial value.
+
+#### Returns
+*(\*)*: Returns the accumulated value.
+
+#### Example
+```ruby
+
+sumer = -> (acc, current) {
+    acc + current
+}
+
+R_.reduce_right[[1, 2, 3, 4, 5], sumer] # => 15
+
+hash = { a: 1, b: 2 }
+hash_sumer = -> (acc, current) { acc + current }
+R_.reduce_right[hash, hash_sumer, 0] # => 3
+```
+* * *
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

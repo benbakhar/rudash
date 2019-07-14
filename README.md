@@ -191,6 +191,37 @@ R_.filter[{ a: 1, b: 2, c: 3, d: 4 }, is_even] # => { b: 2, d: 4 }
 ```
 * * *
 
+### <a id="_map></a>`R_.map[collection, iteratee_proc = R_.identity]`
+
+Creates an array of values by running each element in collection thru iteratee. The iteratee is invoked with two arguments:
+[value, index|key].
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`iteratee_proc` *(proc)*: The function invoked per iteration.
+
+#### Returns
+*(Array)*: Returns the new mapped array.
+
+#### Example
+```ruby
+
+double = -> (value) { value * 2 }
+R_.map[[1,2,3], double] # => [2,4,6]
+
+double_even_index = -> (value, index) {
+    index % 2 === 0 ? value * 2 : value
+}
+
+R_.map[[1,2,3,4,5,6,7,8,9], double_even_index] # => [2,2,6,4,10,6,14,8,18]
+
+inc_by_one = -> (value) { value + 1 }
+hash = { a: 1 }
+R_.map[hash, inc_by_one] # => [2]
+```
+* * *
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

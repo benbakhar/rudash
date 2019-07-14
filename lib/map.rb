@@ -1,6 +1,8 @@
 module Map
     def map
-        map_proc = -> (collection, mapper_proc) {
+        map_proc = -> (collection, *rest_args) {
+            mapper_proc = self.head[rest_args] || self.identity
+
             if collection.is_a?(Array)
                 return mapper_proc.arity == 1 ?
                     collection.map { |value| mapper_proc[value] } :

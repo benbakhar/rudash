@@ -157,7 +157,7 @@ R_.every?[persons, { sex: 'male' }] # => false
 ```
 * * *
 
-### <a id="_filter></a>`R_.filter[collection, predicate_proc = R_.identity]`
+### <a id="_filter"></a>`R_.filter[collection, predicate_proc = R_.identity]`
 
 Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with two arguments: [value, index|key]
 
@@ -191,7 +191,7 @@ R_.filter[{ a: 1, b: 2, c: 3, d: 4 }, is_even] # => { b: 2, d: 4 }
 ```
 * * *
 
-### <a id="_map></a>`R_.map[collection, iteratee_proc = R_.identity]`
+### <a id="_map"></a>`R_.map[collection, iteratee_proc = R_.identity]`
 
 Creates an array of values by running each element in collection thru iteratee. The iteratee is invoked with two arguments:
 [value, index|key].

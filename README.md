@@ -222,6 +222,62 @@ R_.map[hash, inc_by_one] # => [2]
 ```
 * * *
 
+### <a id="_find"></a>`R_.find[collection, iteratee_proc = R_.identity]`
+
+Iterates over elements of collection, returning the first element predicate returns truthy for. The predicate is invoked with two arguments: (value, index|key).
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to inspect.
+
+`iteratee_proc` *(proc)*: The function invoked per iteration.
+
+#### Returns
+*(\*)*: Returns the matched element, else nil.
+
+#### Example
+```ruby
+
+is_even = -> (value) { value % 2 === 0 }
+R_.find[[1,2,3,4], is_even] # => 2
+
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+R_.find[persons, { sex: 'female' }] # => { name: 'sabel', sex: 'female' }
+```
+* * *
+
+### <a id="_find_last"></a>`R_.find_last[collection, iteratee_proc = R_.identity]`
+
+This method is like R_.find except that it iterates over elements of collection from right to left.
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to inspect.
+
+`iteratee_proc` *(proc)*: The function invoked per iteration.
+
+#### Returns
+*(\*)*: Returns the matched element, else nil.
+
+#### Example
+```ruby
+
+is_even = -> (value) { value % 2 === 0 }
+R_.find_last[[1,2,3,4], is_even] # => 4
+
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+R_.find_last[persons, { sex: 'female' }] # => { name: 'sonia', sex: 'female' }
+```
+* * *
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

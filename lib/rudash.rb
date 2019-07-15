@@ -9,7 +9,6 @@ require 'concat.rb'
 require 'find_last.rb'
 require 'reduce.rb'
 require 'reduce_right.rb'
-require 'reject.rb'
 require 'compact.rb'
 require 'head.rb'
 require 'last.rb'
@@ -29,7 +28,6 @@ class R_
     extend FindLast
     extend Reduce
     extend ReduceRight
-    extend Reject
     extend Compact
     extend Head
     extend Last

@@ -357,6 +357,25 @@ R_.reduce_right[hash, hash_sumer, 0] # => 3
 ```
 * * *
 
+### <a id="_size"></a>`R_.size[collection]`
+
+Gets the size of collection by returning its length for array-like values or the number of own enumerable string keyed properties for objects.
+
+#### Arguments
+`collection` *(Array|Object|string)*: The collection to inspect.
+
+#### Returns
+*(Number)*: Returns the collection size.
+
+#### Example
+```ruby
+
+R_.size[[1,2,3]] # => 3
+R_.size[{a: 1, b: 2}] # => 2
+R_.size["pebbles"] # => 7
+```
+* * *
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

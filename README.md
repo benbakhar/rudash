@@ -357,12 +357,41 @@ R_.reduce_right[hash, hash_sumer, 0] # => 3
 ```
 * * *
 
+### <a id="_some"></a>`R_.some?[collection, predicate_proc = R_.identity]`
+
+Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with three arguments: (value, index|key).
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`predicate_proc` *(proc)*: The function invoked per iteration.
+
+#### Returns
+*(Boolean)*: Returns true if any element passes the predicate check, else false.
+
+#### Example
+```ruby
+
+is_even = -> (value) { value % 2 === 0 }
+R_.some?[[1,2,3,4], is_even] # => true
+
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+R_.some?[persons, { sex: 'male' }] # => true
+
+```
+* * *
+
 ### <a id="_size"></a>`R_.size[collection]`
 
 Gets the size of collection by returning its length for array-like values or the number of own enumerable string keyed properties for objects.
 
 #### Arguments
-`collection` *(Array|Object|string)*: The collection to inspect.
+`collection` *(Array|Hash|string)*: The collection to inspect.
 
 #### Returns
 *(Number)*: Returns the collection size.
@@ -393,5 +422,25 @@ This method returns the first argument it receives.
 R_.identity[0] # => 0
 
 R_.identity[1, 2] # => 1
+```
+* * *
+
+## “Lang” Methods
+
+### <a id="_is_nil"></a>`R_.is_nil?[value]`
+
+Checks if value is nil.
+
+#### Arguments
+`value` *(\*)*: Any value.
+
+#### Returns
+*(Boolean)*: Returns true if value is nilish, else false.
+
+#### Example
+```ruby
+R_.is_nil?[nil] # => true
+
+R_.is_nil?[0]] # => false
 ```
 * * *

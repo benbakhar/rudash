@@ -1,10 +1,7 @@
 module Last
     def last
         last_proc = -> (array) {
-            if !array.is_a?(Array)
-                return nil
-            end
-
+            return nil if !array.is_a?(Array)
             array.last
         }
     end

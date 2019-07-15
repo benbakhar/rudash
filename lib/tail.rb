@@ -1,10 +1,7 @@
 module Tail
     def tail
         tail_proc = -> (array) {
-            if !array.is_a?(Array)
-                return []
-            end
-
+            return [] if !array.is_a?(Array)
             array[1..-1] || []
         }
     end

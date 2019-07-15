@@ -405,6 +405,28 @@ R_.size["pebbles"] # => 7
 ```
 * * *
 
+## `“Function” Methods`
+
+### <a id="_flip"></a>`R_.flip[a_proc]`
+
+Creates a proc that invokes the passed proc with arguments reversed.
+
+#### Arguments
+`a_proc` *(Proc)*: The proc to flip arguments for.
+
+#### Returns
+*(Proc)*: Returns the new flipped proc.
+
+#### Example
+```ruby
+subtract = -> (a, b) { a - b }
+subtract[2, 1] # => 1
+
+flipped_subtract = R_.flip[subtract]
+flipped_subtract[2, 1] # => -1
+```
+* * *
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

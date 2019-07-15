@@ -514,6 +514,6 @@ Checks if value is classified as an Array object.
 ```ruby
 R_.is_array?[[1,2,3]] # => true
 
-R_.is_array?[{ a: 1 }]] # => false
+R_.is_array?[{ a: 1 }] # => false
 ```
 * * *

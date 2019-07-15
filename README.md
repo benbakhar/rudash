@@ -498,3 +498,22 @@ R_.is_nil?[nil] # => true
 R_.is_nil?[0]] # => false
 ```
 * * *
+
+
+### <a id="_is_array"></a>`R_.is_array?[value]`
+
+Checks if value is classified as an Array object.
+
+#### Arguments
+`value` *(\*)*: The value to check.
+
+#### Returns
+*(Boolean)*: Returns true if value is an array, else false.
+
+#### Example
+```ruby
+R_.is_array?[[1,2,3]] # => true
+
+R_.is_array?[{ a: 1 }]] # => false
+```
+* * *

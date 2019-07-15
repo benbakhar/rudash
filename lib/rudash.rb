@@ -17,6 +17,7 @@ require 'size.rb'
 require 'flip.rb'
 require 'identity.rb'
 require 'get.rb'
+require 'is_array.rb'
 
 class R_
     extend Map
@@ -37,4 +38,5 @@ class R_
     extend Flip
     extend Identity
     extend Get
+    extend IsArray
 end

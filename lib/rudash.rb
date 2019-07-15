@@ -16,6 +16,7 @@ require 'tail.rb'
 require 'size.rb'
 require 'flip.rb'
 require 'identity.rb'
+require 'get.rb'
 
 class R_
     extend Map
@@ -35,4 +36,5 @@ class R_
     extend Size
     extend Flip
     extend Identity
+    extend Get
 end

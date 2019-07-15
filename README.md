@@ -427,6 +427,40 @@ flipped_subtract[2, 1] # => -1
 ```
 * * *
 
+
+## `“Hash” Methods`
+
+### <a id="_get"></a>`R_.get[hash, path]`
+
+Gets the value at path of hash.
+
+#### Arguments
+`hash` *(Hash)*: The hash to query.
+
+`path` *(String)*: The path of the property to get.
+
+#### Returns
+*(\*)*: Returns the resolved value.
+
+#### Example
+```ruby
+
+# Simple hash
+hash = { a: 1, b: 2 }
+R_.get[hash, 'a'] # => 1
+R_.get[hash, 'b'] # => 2
+
+# Complex hash with arrays
+hash = { a: { b: { c: [{ a: 1 }] } } }
+R_.get[hash, 'a.b.c.0.a'] # => 1
+
+# Not found case
+hash = { a: 1, b: 2 }
+R_.get[hash, 'a.b.c.xvx.a'] # => nil
+```
+* * *
+
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity[value]`

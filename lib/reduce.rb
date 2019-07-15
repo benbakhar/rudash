@@ -1,18 +1,31 @@
 module Reduce
     def reduce
-        reduce_proc = -> (*args) {
-            collection = args[0]
-            reducer = args[1]
-            initial_state = args[2]
+        reduce_proc = -> (collection, *rest_args) {
+            reducer = rest_args[0]
+            initial_state = rest_args[1]
 
-            case args.size
-                when 2
-                    return collection.reduce { |acc, current|
-                        collection.is_a?(Hash) ? reducer[acc, current[1]] : reducer[acc, current]
+            col = collection.is_a?(String) ? collection.split('') : collection
+
+            case rest_args.size
+                when 1
+                    return col.reduce { |acc, current|
+                        if col.is_a?(Hash)
+                            reducer.arity == 2 ?
+                                reducer[acc, current[1]] :
+                                reducer[acc, current[1], current[0]]
+                        else
+                            reducer[acc, current]
+                        end
                     }
-                when 3
-                    return collection.reduce(initial_state) { |acc, current|
-                        collection.is_a?(Hash) ? reducer[acc, current[1]] : reducer[acc, current]
+                when 2
+                    return col.reduce(initial_state) { |acc, current|
+                        if col.is_a?(Hash)
+                            reducer.arity == 2 ?
+                                reducer[acc, current[1]] :
+                                reducer[acc, current[1], current[0]]
+                        else
+                            reducer[acc, current]
+                        end
                     }
                 else
                     return nil

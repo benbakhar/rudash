@@ -296,15 +296,25 @@ Reduces collection to a value which is the accumulated result of running each el
 #### Example
 ```ruby
 
+# Array reducer
 sumer = -> (acc, current) {
     acc + current
 }
 
 R_.reduce[[1, 2, 3, 4, 5], sumer] # => 15
 
+# Hash reducer
 hash = { a: 1, b: 2 }
 hash_sumer = -> (acc, current) { acc + current }
 R_.reduce[hash, hash_sumer, 0] # => 3
+
+# String reducer
+joiner = -> (acc, current) {
+    acc + ',' + current
+}
+
+R_.reduce['islam', joiner] # => 'i,s,l,a,m'
+
 ```
 * * *
 

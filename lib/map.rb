@@ -3,15 +3,17 @@ module Map
         map_proc = -> (collection, *rest_args) {
             mapper_proc = self.head[rest_args] || self.identity
 
-            if collection.is_a?(Array)
-                return mapper_proc.arity == 1 ?
-                    collection.map { |value| mapper_proc[value] } :
-                    collection.map.with_index { |value, index| mapper_proc[value, index] }
+            col = collection.is_a?(String) ? collection.split('') : collection
 
-            elsif collection.is_a?(Hash)
+            if col.is_a?(Array)
+                return mapper_proc.arity == 1 ?
+                    col.map { |value| mapper_proc[value] } :
+                    col.map.with_index { |value, index| mapper_proc[value, index] }
+
+            elsif col.is_a?(Hash)
                 return mapper_proc.arity == 1 ? 
-                    collection.map { |k,v| mapper_proc[v] } :
-                    collection.map { |k,v| mapper_proc[v, k] }
+                    col.map { |k,v| mapper_proc[v] } :
+                    col.map { |k,v| mapper_proc[v, k] }
             else
                 return []
             end

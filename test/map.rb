@@ -22,4 +22,12 @@ class MapTest < Test::Unit::TestCase
         result = R_.map[hash, inc_by_one]
         assert_equal result, [2]
     end
+
+    def test_string_mapping
+        add_e_to_even_indexes = -> (value, index) {
+            index % 2 === 0 ? value + 'e' : value
+        }
+        result = R_.map['islam', add_e_to_even_indexes]
+        assert_equal result, ["ie", "s", "le", "a", "me"]
+    end
 end

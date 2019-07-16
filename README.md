@@ -572,6 +572,24 @@ R_.is_hash?[{ a: 1 }] # => true
 ```
 * * *
 
+### <a id="_is_number"></a>`R_.is_number?[value]`
+
+Checks if value is classified as an Numeric object.
+
+#### Arguments
+`value` *(\*)*: The value to check.
+
+#### Returns
+*(Boolean)*: Returns true if value is a number, else false.
+
+#### Example
+```ruby
+R_.is_number?[56] # => true
+
+R_.is_number?[{ a: 1 }] # => false
+```
+* * *
+
 ### <a id="_is_empty"></a>`R_.is_empty?[value]`
 
 Checks if value is an empty collection.

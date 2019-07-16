@@ -24,6 +24,7 @@ require 'is_empty.rb'
 require 'is_proc.rb'
 require 'reverse.rb'
 require 'curry.rb'
+require 'is_number.rb'
 
 class R_
     extend Map
@@ -51,4 +52,5 @@ class R_
     extend IsProc
     extend Reverse
     extend Curry
+    extend IsNumber
 end

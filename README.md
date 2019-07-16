@@ -403,6 +403,24 @@ R_.size["pebbles"] # => 7
 ```
 * * *
 
+### <a id="_reverse"></a>`R_.reverse[collection]`
+
+Reverses array and/or string so that the first element becomes the last, the second element becomes the second to last, and so on.
+
+#### Arguments
+`collection` *(Array|string)*: The collection to modify.
+
+#### Returns
+*(Array|string)*: Returns the reversed collection.
+
+#### Example
+```ruby
+
+R_.reverse[[1,2,3]] # => [3,2,1]
+R_.reverse['islam'] # => 'malsi'
+```
+* * *
+
 ## `“Function” Methods`
 
 ### <a id="_flip"></a>`R_.flip[a_proc]`

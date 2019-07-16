@@ -22,6 +22,7 @@ require 'is_equal.rb'
 require 'is_hash.rb'
 require 'is_empty.rb'
 require 'is_proc.rb'
+require 'reverse.rb'
 
 class R_
     extend Map
@@ -47,4 +48,5 @@ class R_
     extend IsHash
     extend IsEmpty
     extend IsProc
+    extend Reverse
 end

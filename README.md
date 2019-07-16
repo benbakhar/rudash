@@ -70,6 +70,9 @@ R_.concat[1, { a: 1 }] # => [1, { a: 1 }]
 
 Gets the first element of array.
 
+#### Aliases
+_.first
+
 #### Arguments
 `array` *(Array)*: The array to query.
 

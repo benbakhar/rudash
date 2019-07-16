@@ -5,4 +5,8 @@ module Head
             array.first
         }
     end
+
+    def first
+        self.head
+    end
 end

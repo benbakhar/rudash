@@ -536,6 +536,28 @@ R_.is_hash?[{ a: 1 }] # => true
 ```
 * * *
 
+### <a id="_is_empty"></a>`R_.is_empty?[value]`
+
+Checks if value is an empty collection.
+
+#### Arguments
+`value` *(\*)*: The value to check.
+
+#### Returns
+*(Boolean)*: Returns true if value is empty, else false.
+
+#### Example
+```ruby
+R_.is_empty?[[1,2,3]] # => false
+
+R_.is_empty?[{ a: 1 }] # => false
+
+R_.is_empty?[[]] # => true
+
+R_.is_empty?[{}] # => true
+```
+* * *
+
 ### <a id="_is_equal"></a>`R_.is_equal?[value, other]`
 
 Performs a deep comparison between two values to determine if they are equivalent.

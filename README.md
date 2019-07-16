@@ -443,6 +443,24 @@ flipped_subtract[2, 1] # => -1
 ```
 * * *
 
+### <a id="_curry"></a>`R_.curry[a_proc]`
+
+Creates a proc that accepts arguments of proc and either invokes proc returning its result, if at least arity number of arguments have been provided, or returns a proc that accepts the remaining func arguments, and so on.
+
+#### Arguments
+`a_proc` *(Proc)*: The proc to curry.
+
+#### Returns
+*(Proc)*: Returns the new curried proc.
+
+#### Example
+```ruby
+inc = -> (a, b) { a + b }
+incByOne = R_.curry[inc][1]
+incByOne[3] # => 4
+```
+* * *
+
 
 ## `“Hash” Methods`
 

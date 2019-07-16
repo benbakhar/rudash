@@ -23,6 +23,7 @@ require 'is_hash.rb'
 require 'is_empty.rb'
 require 'is_proc.rb'
 require 'reverse.rb'
+require 'curry.rb'
 
 class R_
     extend Map
@@ -49,4 +50,5 @@ class R_
     extend IsEmpty
     extend IsProc
     extend Reverse
+    extend Curry
 end

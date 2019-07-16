@@ -558,6 +558,25 @@ R_.is_empty?[{}] # => true
 ```
 * * *
 
+### <a id="_is_proc"></a>`R_.is_proc?[value]`
+
+Checks if value is a Proc.
+
+#### Arguments
+`value` *(\*)*: The value to check.
+
+#### Returns
+*(Boolean)*: Returns true if value is a Proc, else false.
+
+#### Example
+```ruby
+R_.is_proc?[{}] # =>  false
+
+is_even = -> (value) { value % 2 === 0 }
+R_.is_proc?[is_even] # => true
+```
+* * *
+
 ### <a id="_is_equal"></a>`R_.is_equal?[value, other]`
 
 Performs a deep comparison between two values to determine if they are equivalent.

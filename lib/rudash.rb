@@ -18,6 +18,7 @@ require 'flip.rb'
 require 'identity.rb'
 require 'get.rb'
 require 'is_array.rb'
+require 'is_equal.rb'
 
 class R_
     extend Map
@@ -39,4 +40,5 @@ class R_
     extend Identity
     extend Get
     extend IsArray
+    extend IsEqual
 end

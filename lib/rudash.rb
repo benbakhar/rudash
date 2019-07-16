@@ -19,6 +19,7 @@ require 'identity.rb'
 require 'get.rb'
 require 'is_array.rb'
 require 'is_equal.rb'
+require 'is_hash.rb'
 
 class R_
     extend Map
@@ -41,4 +42,5 @@ class R_
     extend Get
     extend IsArray
     extend IsEqual
+    extend IsHash
 end

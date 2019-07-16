@@ -518,6 +518,24 @@ R_.is_array?[{ a: 1 }] # => false
 ```
 * * *
 
+### <a id="_is_hash"></a>`R_.is_hash?[value]`
+
+Checks if value is classified as an Hash object.
+
+#### Arguments
+`value` *(\*)*: The value to check.
+
+#### Returns
+*(Boolean)*: Returns true if value is a hash, else false.
+
+#### Example
+```ruby
+R_.is_hash?[[1,2,3]] # => false
+
+R_.is_hash?[{ a: 1 }] # => true
+```
+* * *
+
 ### <a id="_is_equal"></a>`R_.is_equal?[value, other]`
 
 Performs a deep comparison between two values to determine if they are equivalent.

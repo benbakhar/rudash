@@ -9,6 +9,6 @@ class CompactTest < Test::Unit::TestCase
 
     def test_with_nils
         result = R_.compact[[1, 0, nil, "islam"]]
-        assert_equal result, [1, 0, "islamx"]
+        assert_equal result, [1, 0, "islam"]
     end
 end

@@ -1,4 +1,4 @@
-require 'reduce.rb'
+require_relative 'reduce.rb'
 
 module Get
     extend Reduce

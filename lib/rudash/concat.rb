@@ -1,4 +1,4 @@
-require 'is_nil.rb'
+require_relative 'is_nil.rb'
 
 module Concat
     extend IsNil

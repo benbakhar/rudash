@@ -1,6 +1,6 @@
-require 'is_nil.rb'
-require 'identity.rb'
-require 'head.rb'
+require_relative 'is_nil.rb'
+require_relative 'identity.rb'
+require_relative 'head.rb'
 
 module Filter
     extend IsNil

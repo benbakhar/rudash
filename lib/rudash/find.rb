@@ -1,6 +1,6 @@
-require 'filter.rb'
-require 'head.rb'
-require 'identity.rb'
+require_relative 'filter.rb'
+require_relative 'head.rb'
+require_relative 'identity.rb'
 
 module Find
     extend Filter

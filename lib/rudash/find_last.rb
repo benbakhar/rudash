@@ -1,4 +1,4 @@
-require 'filter.rb'
+require_relative 'filter.rb'
 
 module FindLast
     extend Filter

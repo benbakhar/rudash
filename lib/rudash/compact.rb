@@ -1,4 +1,4 @@
-require 'is_nil.rb'
+require_relative 'is_nil.rb'
 
 module Compact
     extend IsNil

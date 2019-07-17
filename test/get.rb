@@ -1,4 +1,4 @@
-require 'rudash'
+require_relative '../lib/rudash'
 require 'test/unit'
 
 class GetTest < Test::Unit::TestCase

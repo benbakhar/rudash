@@ -1,4 +1,4 @@
-require 'rudash'
+require_relative '../lib/rudash'
 require 'test/unit'
 
 class IsProcTest < Test::Unit::TestCase

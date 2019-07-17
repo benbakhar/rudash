@@ -18,12 +18,12 @@ gem build rudash && gem install rudash
 
 Run All Tests:
 ```
-ruby ./test-runner.rb`
+ruby ./test-runner.rb
 ```
 
 Run Specific Test:
 ```
-`ruby ./test/reduce.rb`
+ruby ./test/reduce.rb
 ```
 
 ### Usage

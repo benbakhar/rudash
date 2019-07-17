@@ -146,6 +146,28 @@ R_.uniq[array] # => [1,2,3]
 ```
 * * *
 
+### <a id="_difference"></a>`R_.difference[array, *[values]]`
+
+Creates an array of array values not included in the other given arrays. The order and references of result values are determined by the first array
+
+#### Arguments
+`array` *(Array)*: The array to inspect.
+
+`values` *(...Array)*: The values to exclude.
+
+#### Returns
+*(Array)*: Returns the new array of filtered values.
+
+#### Example
+```ruby
+arr1 = [1, 2, 3]
+arr2 = [2]
+arr3 = [3]
+
+R_.difference[arr1, arr2] # => [1, 3]
+R_.difference[arr1, arr2, arr3] # => [1]
+```
+* * *
 
 ## `“Collection” Methods`
 

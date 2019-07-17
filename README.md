@@ -71,7 +71,7 @@ R_.concat[1, { a: 1 }] # => [1, { a: 1 }]
 Gets the first element of array.
 
 #### Aliases
-_.first
+R_.first
 
 #### Arguments
 `array` *(Array)*: The array to query.
@@ -131,6 +131,40 @@ R_.tail[empty_array] # => []
 
 ## `“Collection” Methods`
 
+### <a id="_each"></a>`R_.each[collection, iteratee_proc = R_.identity]`
+
+Iterates over elements of collection and invokes iteratee for each element. The iteratee is invoked with two arguments: (value, index|key).
+
+#### Aliases
+R_.for_each
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`iteratee_proc` *(Proc)*: The proc function invoked per iteration.
+
+#### Returns
+*(\*)*: Returns collection.
+
+#### Example
+```ruby
+
+# Hash
+hash = {a: 1, b: 2}
+sum = 0
+eacher = -> (value) { sum += value }
+R_.each[hash, eacher]
+sum # => 3
+
+# Array
+array = [1,2,3]
+new_array = []
+eacher = -> (value) { new_array << value }
+R_.each[array, eacher]
+new_array # => [1,2,3]
+```
+* * *
+
 ### <a id="_every"></a>`R_.every?[array, predicate_proc]`
 
 Checks if predicate returns truthy for all elements of array.
@@ -138,7 +172,7 @@ Checks if predicate returns truthy for all elements of array.
 #### Arguments
 `array` *(Array)*: The collection to iterate over.
 
-`predicate_proc` *(proc)*: The proc function invoked per iteration.
+`predicate_proc` *(Proc)*: The proc function invoked per iteration.
 
 #### Returns
 *(boolean)*: Returns true if all elements pass the predicate check, else false.
@@ -165,7 +199,7 @@ Iterates over elements of collection, returning an array of all elements predica
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`predicate_proc` *(proc)*: The function invoked per iteration.
+`predicate_proc` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new filtered array.
@@ -200,7 +234,7 @@ Creates an array of values by running each element in collection thru iteratee. 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(proc)*: The function invoked per iteration.
+`iteratee_proc` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new mapped array.
@@ -240,7 +274,7 @@ Iterates over elements of collection, returning the first element predicate retu
 #### Arguments
 `collection` *(Array|Hash)*: The collection to inspect.
 
-`iteratee_proc` *(proc)*: The function invoked per iteration.
+`iteratee_proc` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns the matched element, else nil.
@@ -268,7 +302,7 @@ This method is like R_.find except that it iterates over elements of collection 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to inspect.
 
-`iteratee_proc` *(proc)*: The function invoked per iteration.
+`iteratee_proc` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns the matched element, else nil.
@@ -297,7 +331,7 @@ Reduces collection to a value which is the accumulated result of running each el
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(proc)*: The function invoked per iteration.
+`iteratee_proc` *(Proc)*: The function invoked per iteration.
 
 `accumulator` *(Any)*: The initial value.
 
@@ -336,7 +370,7 @@ This method is like _.reduce except that it iterates over elements of collection
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(proc)*: The function invoked per iteration.
+`iteratee_proc` *(Proc)*: The function invoked per iteration.
 
 `accumulator` *(Any)*: The initial value.
 
@@ -360,12 +394,12 @@ R_.reduce_right[hash, hash_sumer, 0] # => 3
 
 ### <a id="_some"></a>`R_.some?[collection, predicate_proc = R_.identity]`
 
-Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with three arguments: (value, index|key).
+Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with two arguments: (value, index|key).
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`predicate_proc` *(proc)*: The function invoked per iteration.
+`predicate_proc` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Boolean)*: Returns true if any element passes the predicate check, else false.

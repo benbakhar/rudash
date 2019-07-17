@@ -11,11 +11,6 @@ gem install rudash
 Rudash was written by a JavaScript developer to help JavaScript developers integrate into the ruby world without knowing so much. Lodash JavaScript library is the most popular library ever with wide adoption and most of the JavaScripters use the utility functions in it almost all the time.
 
 ### Developers Contribution 
-Build:
-```
-gem build rudash && gem install rudash
-```
-
 Run All Tests:
 ```
 ruby ./test-runner.rb

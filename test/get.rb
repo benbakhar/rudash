@@ -23,6 +23,10 @@ class GetTest < Test::Unit::TestCase
     def test_complex_hash_and_array
         hash = { a: { b: { c: [{ a: 1 }] } } }
         assert_equal R_.get[hash, 'a.b.c.0.a'], 1
+        assert_equal R_.get[hash, 'a.b.c[0].a'], 1
+
+        array_path = ['a', 'b', 'c', '0', 'a']
+        assert_equal R_.get[hash, array_path], 1
         assert_equal R_.get[hash, 'a.b.c.xvx.a'], nil
     end
 

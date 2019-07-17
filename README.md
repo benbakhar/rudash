@@ -491,6 +491,13 @@ R_.get[hash, 'b'] # => 2
 hash = { a: { b: { c: [{ a: 1 }] } } }
 R_.get[hash, 'a.b.c.0.a'] # => 1
 
+# You can use also array [] notations
+R_.get[hash, 'a.b.c[0].a'] # => 1
+
+# You can use Array paths
+array_path = ['a', 'b', 'c', '0', 'a']
+R_.get[hash, array_path] # => 1
+
 # Not found case
 hash = { a: 1, b: 2 }
 R_.get[hash, 'a.b.c.xvx.a'] # => nil

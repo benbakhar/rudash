@@ -26,6 +26,7 @@ require_relative './rudash/curry.rb'
 require_relative './rudash/is_number.rb'
 require_relative './rudash/keys.rb'
 require_relative './rudash/each.rb'
+require_relative './rudash/uniq.rb'
 
 class R_
     extend Map
@@ -56,4 +57,5 @@ class R_
     extend IsNumber
     extend Keys
     extend Each
+    extend Uniq
 end

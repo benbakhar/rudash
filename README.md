@@ -129,6 +129,24 @@ R_.tail[empty_array] # => []
 ```
 * * *
 
+### <a id="_uniq"></a>`R_.uniq[array]`
+
+Creates a duplicate-free version of an array.
+
+#### Arguments
+`array` *(Array)*: The array to inspect.
+
+#### Returns
+*(Array)*: Returns the new duplicate free array.
+
+#### Example
+```ruby
+array = [1,2, 2, 3, 3, 3]
+R_.uniq[array] # => [1,2,3]
+```
+* * *
+
+
 ## `“Collection” Methods`
 
 ### <a id="_each"></a>`R_.each[collection, iteratee_proc = R_.identity]`

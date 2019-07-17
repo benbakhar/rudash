@@ -504,6 +504,21 @@ R_.get[hash, 'a.b.c.xvx.a'] # => nil
 ```
 * * *
 
+### <a id="_keys"></a>`R_.keys[hash]`
+
+Gets the keys of hash.
+
+#### Arguments
+`hash` *(Hash)*: The hash to query.
+
+#### Returns
+*(Array)*: Returns the array of keys.
+
+#### Example
+```ruby
+hash = {a: 1, b: 2}
+R_.keys[hash] # => ['a', 'b']
+```
 
 ## `“Util” Methods`
 

@@ -30,6 +30,7 @@ require_relative './rudash/uniq.rb'
 require_relative './rudash/difference.rb'
 require_relative './rudash/is_string.rb'
 require_relative './rudash/eq.rb'
+require_relative './rudash/each_right.rb'
 
 class R_
     extend Map
@@ -64,4 +65,5 @@ class R_
     extend Difference
     extend IsString
     extend Eq
+    extend EachRight
 end

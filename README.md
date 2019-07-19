@@ -216,6 +216,41 @@ new_array # => [1,2,3]
 ```
 * * *
 
+### <a id="_each_right"></a>`R_.each_right[collection, iteratee_proc = R_.identity]`
+
+This method is like R_.each except that it iterates over elements of collection from right to left.
+
+#### Aliases
+R_.for_each_right
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`iteratee_proc` *(Proc)*: The proc function invoked per iteration.
+
+#### Returns
+*(\*)*: Returns collection.
+
+#### Example
+```ruby
+
+# Hash
+hash = {a: 1, b: 2}
+sum = 0
+eacher = -> (value) { sum += value }
+R_.each_right[hash, eacher]
+sum # => 3
+
+# Array
+array = [1,2,3]
+new_array = []
+eacher = -> (value) { new_array << value }
+R_.each_right[array, eacher]
+new_array # => [3,2,1]
+```
+* * *
+
+
 ### <a id="_every"></a>`R_.every?[array, predicate_proc]`
 
 Checks if predicate returns truthy for all elements of array.

@@ -624,6 +624,34 @@ R_.get[hash, 'a.b.c.xvx.a'] # => nil
 ```
 * * *
 
+### <a id="_at"></a>`R_.at[hash, paths]`
+
+Creates an array of values corresponding to paths of hash.
+
+#### Arguments
+`hash` *(Hash)*: The hash to query.
+
+`paths` *(Array of String)*: The paths of the properties to get.
+
+#### Returns
+*(\*)*: Returns the resolved value.
+
+#### Example
+```ruby
+
+# Simple hash
+hash = { a: 1, b: 2 }
+R_.at[hash, ['a', 'b']] # => [1,2]
+
+hash = { 'a' => 1, 'b' => 2 }
+R_.at[hash, ['a', 'b']] # => [1,2]
+
+hash = { a: { b: { c: 3 } } }
+R_.at[hash, ['a.b', 'a.b.c']] # => [{ c: 3 }, 3]
+```
+* * *
+
+
 ### <a id="_keys"></a>`R_.keys[hash]`
 
 Gets the keys of hash.

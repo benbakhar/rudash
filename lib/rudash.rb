@@ -32,6 +32,7 @@ require_relative './rudash/is_string.rb'
 require_relative './rudash/eq.rb'
 require_relative './rudash/each_right.rb'
 require_relative './rudash/at.rb'
+require_relative './rudash/negate.rb'
 
 class R_
     extend Map
@@ -68,4 +69,5 @@ class R_
     extend Eq
     extend EachRight
     extend At
+    extend Negate
 end

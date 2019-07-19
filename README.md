@@ -566,6 +566,28 @@ flipped_subtract[2, 1] # => -1
 ```
 * * *
 
+### <a id="_negate"></a>`R_.negate[a_proc]`
+
+Creates a proc that negates the result of the passed proc.
+
+#### Arguments
+`a_proc` *(Proc)*: The proc to negate.
+
+#### Returns
+*(Proc)*: Returns the new negated proc.
+
+#### Example
+```ruby
+is_even = -> (value) { value % 2 === 0 }
+is_odd = R_.negate[is_even]
+
+is_even[2] # => true
+is_even[1] # => false
+is_odd[1] # => true
+is_odd[2] # => false
+```
+* * *
+
 ### <a id="_curry"></a>`R_.curry[a_proc]`
 
 Creates a proc that accepts arguments of proc and either invokes proc returning its result, if at least arity number of arguments have been provided, or returns a proc that accepts the remaining func arguments, and so on.

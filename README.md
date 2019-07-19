@@ -779,3 +779,25 @@ hash2 = { a: { b: 2 } }
 R_.is_equal?[hash1, hash2] # => true
 ```
 * * *
+
+### <a id="_is_eq"></a>`R_.eq?[value, other]`
+
+Performs a reference comparison between two values to determine if they are equivalent.
+
+#### Arguments
+`value` *(\*)*: The value to compare.
+
+`other` *(\*)*: The other value to compare.
+
+#### Returns
+*(Boolean)*: Returns true if the values are equivalent, else false.
+
+#### Example
+```ruby
+hash1 = { a: 1 }
+hash2 = { a: 1 }
+
+R_.eq?[hash1, hash2] # => false
+R_.eq?[hash1, hash1] # => false
+```
+* * *

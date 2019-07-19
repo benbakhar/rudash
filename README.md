@@ -641,7 +641,25 @@ Checks if value is nil.
 ```ruby
 R_.is_nil?[nil] # => true
 
-R_.is_nil?[0]] # => false
+R_.is_nil?[0] # => false
+```
+* * *
+
+### <a id="_is_string"></a>`R_.is_string?[value]`
+
+Checks if value is string.
+
+#### Arguments
+`value` *(\*)*: Any value.
+
+#### Returns
+*(Boolean)*: Returns true if value is string, else false.
+
+#### Example
+```ruby
+R_.is_string?[nil] # => false
+
+R_.is_string?['str'] # => true
 ```
 * * *
 

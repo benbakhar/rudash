@@ -3,22 +3,22 @@ require 'test/unit'
 
 class EachTest < Test::Unit::TestCase
     def test_number
-        assert_equal R_.each[5], 5
+        assert_equal R_.each(5), 5
     end
 
     def test_nil
-        assert_equal R_.each[nil], nil
+        assert_equal R_.each(nil), nil
     end
 
     def test_string
-        assert_equal R_.each['islam'], 'islam'
+        assert_equal R_.each('islam'), 'islam'
     end
     
     def test_array_values
         array = [1,2,3]
         new_array = []
         eacher = -> (value) { new_array << value }
-        R_.each[array, eacher]
+        R_.each(array, eacher)
         assert_equal new_array, array
     end
 
@@ -26,7 +26,7 @@ class EachTest < Test::Unit::TestCase
         array = [1,2,3]
         new_array = []
         eacher = -> (value, index) { new_array << index }
-        R_.each[array, eacher]
+        R_.each(array, eacher)
         assert_equal new_array, [0, 1, 2]
     end
 
@@ -34,7 +34,7 @@ class EachTest < Test::Unit::TestCase
         hash = {a: 1, b: 2}
         sum = 0
         eacher = -> (value) { sum += value }
-        R_.each[hash, eacher]
+        R_.each(hash, eacher)
         assert_equal sum, 3
     end
 
@@ -42,11 +42,15 @@ class EachTest < Test::Unit::TestCase
         hash = {a: 1, b: 2}
         new_array = []
         eacher = -> (value, key) { new_array << key }
-        R_.each[hash, eacher]
+        R_.each(hash, eacher)
         assert_equal new_array, [:a, :b]
     end
 
     def test_alias
-        assert_not_equal R_.for_each, nil
+        hash = {a: 1, b: 2}
+        sum = 0
+        eacher = -> (value) { sum += value }
+        R_.for_each(hash, eacher)
+        assert_equal sum, 3
     end
 end

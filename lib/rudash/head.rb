@@ -1,12 +1,10 @@
 module Head
-    def head
-        head_proc = -> (array) {
-            return nil if !array.is_a?(Array)
-            array.first
-        }
+    def head(array)
+        return nil if !array.is_a?(Array)
+        array.first
     end
 
-    def first
-        self.head
+    def first(*args)
+        self.head(*args)
     end
 end

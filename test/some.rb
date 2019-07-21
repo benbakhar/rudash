@@ -4,18 +4,18 @@ require 'test/unit'
 class SomeTest < Test::Unit::TestCase
     def test_match_even_numbers
         is_even = -> (value) { value % 2 === 0 }
-        result = R_.some?[[1,2,3,4], is_even]
+        result = R_.some?([1,2,3,4], is_even)
         assert_equal result, true
     end
 
     def test_mismatch_odd_numbers
         is_even = -> (value) { value % 2 === 0 }
-        result = R_.some?[[1,3,5,7], is_even]
+        result = R_.some?([1,3,5,7], is_even)
         assert_equal result, false
     end
 
     def test_nil_params
-        result = R_.some?[[1,3,5,7], nil]
+        result = R_.some?([1,3,5,7], nil)
         assert_equal result, true
     end
 
@@ -26,7 +26,7 @@ class SomeTest < Test::Unit::TestCase
             { name: 'sonia', sex: 'female' }
         ]
         
-        result = R_.some?[persons, { sex: 'male' }]
+        result = R_.some?(persons, { sex: 'male' })
         assert_equal result, true
     end
 end

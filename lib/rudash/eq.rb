@@ -1,7 +1,5 @@
 module Eq
-    def eq?
-        eq_proc = -> (object, other) {
-            object.equal?(other)
-        }
+    def eq?(object, other)
+        object.equal?(other)
     end
 end

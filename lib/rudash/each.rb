@@ -3,14 +3,12 @@ require_relative 'map.rb'
 module Each
     extend Map
 
-    def each
-        each_proc = -> (collection, *rest_args) {
-            self.map[collection, *rest_args]
-            collection
-        }
+    def each(collection, *rest_args)
+        self.map(collection, *rest_args)
+        collection
     end
 
-    def for_each
-        self.each
+    def for_each(*args)
+        self.each(*args)
     end
 end

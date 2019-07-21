@@ -28,16 +28,16 @@ module Filter
 
             return filtered_arr
         elsif collection.is_a?(Array)
-            if filter.arity == 1
-                return collection.select { |x| filter[x] }
-            else
+            begin
                 return collection.select.with_index { |x, idx| filter[x, idx] }
+            rescue ArgumentError => e
+                return collection.select { |x| filter[x] }
             end
         elsif collection.is_a?(Hash)
-            if filter.arity == 1
-                return collection.select { |k, v| filter[v] }
-            else
+            begin
                 return collection.select { |k, v| filter[v, k] }
+            rescue ArgumentError => e
+                return collection.select { |k, v| filter[v] }
             end
         else
             return []

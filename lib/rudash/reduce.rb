@@ -9,9 +9,11 @@ module Reduce
             when 1
                 return col.reduce { |acc, current|
                     if col.is_a?(Hash)
-                        reducer.arity == 2 ?
-                            reducer[acc, current[1]] :
+                        begin
                             reducer[acc, current[1], current[0]]
+                        rescue ArgumentError => e
+                            reducer[acc, current[1]]
+                        end
                     else
                         reducer[acc, current]
                     end
@@ -19,9 +21,11 @@ module Reduce
             when 2
                 return col.reduce(initial_state) { |acc, current|
                     if col.is_a?(Hash)
-                        reducer.arity == 2 ?
-                            reducer[acc, current[1]] :
+                        begin
                             reducer[acc, current[1], current[0]]
+                        rescue ArgumentError => e
+                            reducer[acc, current[1]]
+                        end
                     else
                         reducer[acc, current]
                     end

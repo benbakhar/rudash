@@ -10,5 +10,7 @@ class NegateTest < Test::Unit::TestCase
         assert_equal is_even[1], false
         assert_equal is_odd[1], true
         assert_equal is_odd[2], false
+
+        assert_equal R_.filter([1,2,3,4], is_odd), [1,3]
     end
 end

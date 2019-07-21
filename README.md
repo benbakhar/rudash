@@ -585,6 +585,8 @@ is_even.(2) # => true
 is_even.(1) # => false
 is_odd.(1) # => true
 is_odd.(2) # => false
+
+R_.filter([1,2,3,4], is_odd) # => [1,3]
 ```
 * * *
 

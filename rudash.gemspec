@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
     s.authors = ['Islam Attrash']
     s.email = 'isattrash@gmail.com'
     s.license = 'MIT'
-    s.summary = %q{rudash is the best Lodash utility ever}
+    s.summary = %q{Rudash - Lodash for Ruby Apps}
     s.files = Dir.glob('{lib}/**/*')
     s.require_paths = ['lib']
     s.homepage = 'https://github.com/Attrash-Islam/rudash'

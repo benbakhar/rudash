@@ -33,6 +33,7 @@ require_relative './rudash/eq.rb'
 require_relative './rudash/each_right.rb'
 require_relative './rudash/at.rb'
 require_relative './rudash/negate.rb'
+require_relative './rudash/capitalize.rb'
 
 class R_
     extend Map
@@ -70,4 +71,5 @@ class R_
     extend EachRight
     extend At
     extend Negate
+    extend Capitalize
 end

@@ -692,6 +692,27 @@ hash = {a: 1, b: 2}
 R_.keys(hash) # => ['a', 'b']
 ```
 
+## `“String” Methods`
+
+### <a id="_capitalize"></a>`R_.capitalize(str)`
+
+Converts the first character of string to upper case and the remaining to lower case.
+
+#### Arguments
+`str` *(String)*: The string to capitalize.
+
+#### Returns
+*(String)*: Returns the capitalized string.
+
+#### Example
+```ruby
+R_.capitalize(nil) # => ''
+R_.capitalize(4) # =>'4'
+R_.capitalize('fiverr') # =>'Fiverr'
+```
+* * *
+
+
 ## `“Util” Methods`
 
 ### <a id="_identity"></a>`R_.identity(value)`

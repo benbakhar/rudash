@@ -180,6 +180,27 @@ R_.difference(arr1, arr2, arr3) # => [1]
 ```
 * * *
 
+### <a id="_without"></a>`R_.without(array, *[values])`
+
+Creates an array excluding all given values.
+
+#### Arguments
+`array` *(Array)*: The array to inspect.
+
+`values` *(...Array)*: The values to exclude.
+
+#### Returns
+*(Array)*: Returns the new array of filtered values.
+
+#### Example
+```ruby
+arr1 = [1, 2, 3]
+
+R_.without(arr1, 2) # => [1, 3]
+R_.without(arr1, 2, 3) # => [1]
+```
+* * *
+
 ## `“Collection” Methods`
 
 ### <a id="_each"></a>`R_.each(collection, iteratee_proc = R_.identity)`

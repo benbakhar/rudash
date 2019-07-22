@@ -77,6 +77,23 @@ R_.concat(1, { a: 1 }) # => [1, { a: 1 }]
 ```
 * * *
 
+### <a id="_intersection"></a>`R_.intersection([arrays])`
+
+Creates an array of unique values that are included in all given arrays.
+
+#### Arguments
+`[arrays]` *(...Array)*: The arrays to inspect.
+
+#### Returns
+*(Array)*: Returns the new array of intersecting values.
+
+#### Example
+```ruby
+R_.intersection([2, 1], [2, 3]) # => [2]
+R_.intersection([1,2,3], [1,2], [2]) # => [2]
+```
+* * *
+
 ### <a id="_head"></a>`R_.head(array)`
 
 Gets the first element of array.

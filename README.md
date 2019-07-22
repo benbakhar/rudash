@@ -94,6 +94,27 @@ R_.intersection([1,2,3], [1,2], [2]) # => [2]
 ```
 * * *
 
+### <a id="_join"></a>`R_.join(array, [separator = ','])`
+
+Converts all elements in array into a string separated by separator.
+
+#### Arguments
+`array` *(Array)*: The array to convert.
+
+`[separator=',']` *(String)*: The element separator.
+
+#### Returns
+*(String)*: Returns the joined string.
+
+#### Example
+```ruby
+R_.join([1,2,3]) # => '1,2,3'
+R_.join([1,2,3], '*') # => '1*2*3'
+R_.join([1,2,3], 5) # => '15253'
+R_.join(0) # => ''
+```
+* * *
+
 ### <a id="_head"></a>`R_.head(array)`
 
 Gets the first element of array.

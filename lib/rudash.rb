@@ -36,6 +36,7 @@ require_relative './rudash/negate.rb'
 require_relative './rudash/capitalize.rb'
 require_relative './rudash/without.rb'
 require_relative './rudash/intersection.rb'
+require_relative './rudash/join.rb'
 
 class R_
     extend Map
@@ -76,4 +77,5 @@ class R_
     extend Capitalize
     extend Without
     extend Intersection
+    extend Join
 end

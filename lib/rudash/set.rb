@@ -6,7 +6,7 @@ module Set
     extend Get
 
     def set(object, path, value)
-        return object if !object.is_a?(Hash) and !object.is_a?(Array)
+        return object if !object.is_a?(Hash) && !object.is_a?(Array)
 
         resolved_path = PathResolver.resolve(path)
         NestedPathCreator.create_path_if_not_exist(object, resolved_path)

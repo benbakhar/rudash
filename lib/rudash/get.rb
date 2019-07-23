@@ -7,17 +7,17 @@ module Get
     extend Filter
 
     def get(hash, path, *rest_args)
-        return nil if !path.is_a?(String) and !path.is_a?(Array)
-        return nil if !hash.is_a?(Array) and !hash.is_a?(Hash)
+        return nil if !path.is_a?(String) && !path.is_a?(Array)
+        return nil if !hash.is_a?(Array) && !hash.is_a?(Hash)
 
         resolved_path = PathResolver.resolve(path)
         
         get_reducer = -> (acc, current) {
             return nil if acc.nil?
 
-            if acc.is_a?(Array) and current.match(/^(\d)+$/)
+            if acc.is_a?(Array) && current.match(/^(\d)+$/)
                 acc[current.to_i]
-            elsif acc.is_a?(Array) and !current.match(/^(\d)+$/)
+            elsif acc.is_a?(Array) && !current.match(/^(\d)+$/)
                 nil
             elsif acc.is_a?(Hash)
                 acc[current.to_sym] || acc[current]

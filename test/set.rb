@@ -2,7 +2,7 @@ require_relative '../lib/rudash'
 require 'test/unit'
 
 class SetTest < Test::Unit::TestCase
-    def test_sym_hash
+    def test_simple_hash
         hash = { a: 1, b: 2 }
         R_.set(hash, 'a', 2)
         assert_equal hash, { a: 2, b: 2 }

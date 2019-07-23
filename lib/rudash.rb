@@ -39,6 +39,7 @@ require_relative './rudash/intersection.rb'
 require_relative './rudash/join.rb'
 require_relative './rudash/initial.rb'
 require_relative './rudash/set.rb'
+require_relative './rudash/pick.rb'
 
 class R_
     extend Map
@@ -82,4 +83,5 @@ class R_
     extend Join
     extend Initial
     extend Set
+    extend Pick
 end

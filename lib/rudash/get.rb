@@ -1,6 +1,7 @@
 require_relative 'reduce.rb'
 require_relative 'filter.rb'
 require_relative '../utils/path_resolver.rb'
+require_relative '../utils/index.rb'
 
 module Get
     extend Reduce
@@ -15,9 +16,9 @@ module Get
         get_reducer = -> (acc, current) {
             return nil if acc.nil?
 
-            if acc.is_a?(Array) && current.match(/^(\d)+$/)
+            if acc.is_a?(Array) && Utils.match_number?(current)
                 acc[current.to_i]
-            elsif acc.is_a?(Array) && !current.match(/^(\d)+$/)
+            elsif acc.is_a?(Array) && !Utils.match_number?(current)
                 nil
             elsif acc.is_a?(Hash)
                 acc[current.to_sym] || acc[current]

@@ -1,5 +1,6 @@
 require_relative '../utils/path_resolver.rb'
 require_relative '../utils/nested_path_creator.rb'
+require_relative '../utils/index.rb'
 require_relative 'get.rb'
 
 module Set
@@ -13,7 +14,7 @@ module Set
 
         *initial_path, last = resolved_path
 
-        last_key = last.match(/^(\d)+$/) ? last.to_i : last.to_sym
+        last_key = Utils.match_number?(last) ? last.to_i : last.to_sym
 
         if initial_path.size == 0
             object[last_key] = value

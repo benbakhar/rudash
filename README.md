@@ -193,8 +193,8 @@ Gets all but the last element of array.
 array = [1,2,3]
 R_.initial(array) # => [1,2]
 
-empty_array = [1]
-R_.initial(empty_array) # => []
+one_item_array = [1]
+R_.initial(one_item_array) # => []
 ```
 * * *
 

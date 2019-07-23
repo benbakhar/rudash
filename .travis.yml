@@ -2,6 +2,6 @@ language: ruby
 sudo: false
 rvm:
   - 2.2.7
-gemfile: Gemfile
 script:
-  - bundle exec ruby test-runner.rb
+  - gem install test-unit
+  - ruby test-runner.rb

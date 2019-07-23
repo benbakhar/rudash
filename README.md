@@ -178,6 +178,26 @@ R_.tail(empty_array) # => []
 ```
 * * *
 
+### <a id="_initial"></a>`R_.initial(array)`
+
+Gets all but the last element of array.
+
+#### Arguments
+`array` *(Array)*: The array to query.
+
+#### Returns
+*(Array)*: Returns the slice of array.
+
+#### Example
+```ruby
+array = [1,2,3]
+R_.initial(array) # => [1,2]
+
+one_item_array = [1]
+R_.initial(one_item_array) # => []
+```
+* * *
+
 ### <a id="_uniq"></a>`R_.uniq(array)`
 
 Creates a duplicate-free version of an array.
@@ -670,12 +690,12 @@ incByOne.(3) # => 4
 
 ## `“Hash” Methods`
 
-### <a id="_get"></a>`R_.get(hash, path)`
+### <a id="_get"></a>`R_.get(object, path)`
 
-Gets the value at path of hash.
+Gets the value at path of object.
 
 #### Arguments
-`hash` *(Hash)*: The hash to query.
+`object` *(Hash|Array)*: The object to query.
 
 `path` *(String)*: The path of the property to get.
 
@@ -707,12 +727,45 @@ R_.get(hash, 'a.b.c.xvx.a') # => nil
 ```
 * * *
 
-### <a id="_at"></a>`R_.at(hash, paths)`
+### <a id="_set"></a>`R_.set(object, path, value)`
+
+Sets the value at path of object. If a portion of path doesn't exist, it's created.
+
+#### Arguments
+`object` *(Hash|Array)*: The object to query.
+
+`path` *(String)*: The path of the property to set.
+
+`value` *(\*)*: The value to set.
+
+#### Returns
+*(Hash|Array)*: Returns object.
+
+#### Example
+```ruby
+# Simple hash
+hash = { a: 1, b: 2 }
+R_.set(hash, 'a', 2)
+hash # => { a: 2, b: 2 }
+
+# Hash path creation if not exist
+hash = { a: 1, b: 2 }
+R_.set(hash, 'c.x.y', 2)
+hash # => { a: 1, b: 2, c: { x: { y: 2 } } }
+
+# Hash containing array
+hash = { a: 1, b: 2 }
+R_.set(hash, 'c.x.y[0]', 2)
+hash # => { a: 1, b: 2, c: { x: { y: [2] } } }
+```
+* * *
+
+### <a id="_at"></a>`R_.at(object, paths)`
 
 Creates an array of values corresponding to paths of hash.
 
 #### Arguments
-`hash` *(Hash)*: The hash to query.
+`object` *(Hash|Array)*: The object to query.
 
 `paths` *(Array of String)*: The paths of the properties to get.
 

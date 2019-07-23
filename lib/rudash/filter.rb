@@ -10,7 +10,7 @@ module Filter
     def filter(collection, *rest_args)
         filter = self.head(rest_args) || self.method(:identity)
 
-        if collection.is_a?(Array) and filter.is_a?(Hash)
+        if collection.is_a?(Array) && filter.is_a?(Hash)
             filtered_arr = []
             collection.each do |v|
                 match = true

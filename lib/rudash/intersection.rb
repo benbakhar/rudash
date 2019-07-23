@@ -6,7 +6,7 @@ module Intersection
     def intersection(*values)
 
         intersection_reducer = -> (acc, current) {
-            return [] if !current.is_a?(Array) or !acc.is_a?(Array)
+            return [] if !current.is_a?(Array) || !acc.is_a?(Array)
             acc & current
         }
 

@@ -23,7 +23,8 @@ class SetTest < Test::Unit::TestCase
     def test_create_complex_hash_with_array_path
         hash = { a: 1, b: 2 }
         R_.set(hash, 'c.x.y[0]', 2)
-        assert_equal hash, { a: 1, b: 2, c: { x: { y: [2] } } }
+        R_.set(hash, 'c.x.y[1]', 1)
+        assert_equal hash, { a: 1, b: 2, c: { x: { y: [2, 1] } } }
     end
 
     def test_override_values_if_exist

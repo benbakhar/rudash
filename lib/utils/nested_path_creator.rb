@@ -8,8 +8,9 @@ module NestedPathCreator
         path_key = path.match(/^(\d)+$/) ? path.to_i : path.to_sym
         rest_paths = R_.tail(resolved_path)
         next_path = R_.head(rest_paths)
+        value = R_.get(object, path)
 
-        if R_.is_nil?(R_.get(object, path))
+        if R_.is_nil?(value) or (!value.is_a?(Hash) and !value.is_a?(Array))
             if next_path and next_path.match(/^(\d)+$/)
                 object[path_key] = []
             else

@@ -26,6 +26,16 @@ class SetTest < Test::Unit::TestCase
         assert_equal hash, { a: 1, b: 2, c: { x: { y: [2] } } }
     end
 
+    def test_override_values_if_exist
+        hash = { a: 1, b: 2 }
+        R_.set(hash, 'a.x', 'test')
+        assert_equal hash, { a: { x: 'test' }, b: 2 }
+
+        hash = { a: 1, b: 2 }
+        R_.set(hash, 'a.x[0]', 'test')
+        assert_equal hash, { a: { x: ['test'] }, b: 2 }
+    end
+
     def test_array
         array = [1,2,3]
         R_.set(array, '0', 2)

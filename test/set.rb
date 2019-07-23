@@ -8,6 +8,24 @@ class SetTest < Test::Unit::TestCase
         assert_equal hash, { a: 2, b: 2 }
     end
 
+    def test_create_hash_path
+        hash = { a: 1, b: 2 }
+        R_.set(hash, 'c.x.y', 2)
+        assert_equal hash, { a: 1, b: 2, c: { x: { y: 2 } } }
+    end
+
+    def test_create_hash_with_array_path
+        hash = { a: 1, b: 2 }
+        R_.set(hash, 'c[0]', 2)
+        assert_equal hash, { a: 1, b: 2, c: [2] }
+    end
+
+    def test_create_complex_hash_with_array_path
+        hash = { a: 1, b: 2 }
+        R_.set(hash, 'c.x.y[0]', 2)
+        assert_equal hash, { a: 1, b: 2, c: { x: { y: [2] } } }
+    end
+
     def test_array
         array = [1,2,3]
         R_.set(array, '0', 2)

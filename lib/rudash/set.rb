@@ -1,4 +1,5 @@
 require_relative '../utils/path_resolver.rb'
+require_relative '../utils/nested_path_creator.rb'
 require_relative 'get.rb'
 
 module Set
@@ -8,6 +9,8 @@ module Set
         return object if !object.is_a?(Hash) and !object.is_a?(Array)
 
         resolved_path = PathResolver.resolve(path)
+        NestedPathCreator.create_path_if_not_exist(object, resolved_path)
+
         *initial_path, last = resolved_path
 
         last_key = last.match(/^(\d)+$/) ? last.to_i : last.to_sym

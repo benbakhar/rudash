@@ -760,6 +760,41 @@ hash # => { a: 1, b: 2, c: { x: { y: [2] } } }
 ```
 * * *
 
+### <a id="_update"></a>`R_.update(object, path, updater)`
+
+This method is like R_.set except that accepts updater proc to produce the value to set.
+
+#### Arguments
+`object` *(Hash|Array)*: The object to modify.
+
+`path` *(String)*: The path of the property to set.
+
+`updater` *(Proc)*: The proc to produce the updated value depends on the current value.
+
+#### Returns
+*(Hash|Array)*: Returns object.
+
+#### Example
+```ruby
+# Already exist path
+hash = { a: [{ b: { c: 3 } }] };
+manipulate_self = -> (n) { n * n }
+
+R_.update(hash, 'a[0].b.c', manipulate_self)
+hash # => { a: [{ b: { c: 9 } }] }
+
+# For not exist paths
+hash = { a: [{ b: { c: 3 } }] }
+
+add_one_if_exist_else_zero = -> (n) {
+    n.nil? ? 0 : n + 1
+}
+
+R_.update(hash, 'x[0].y.z', add_one_if_exist_else_zero);
+hash # => { a: [{ b: { c: 3 } }], x: [{ y: { z: 0 }}] }
+```
+* * *
+
 ### <a id="_at"></a>`R_.at(object, paths)`
 
 Creates an array of values corresponding to paths of hash.

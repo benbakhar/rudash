@@ -40,6 +40,7 @@ require_relative './rudash/join.rb'
 require_relative './rudash/initial.rb'
 require_relative './rudash/set.rb'
 require_relative './rudash/pick.rb'
+require_relative './rudash/update.rb'
 
 class R_
     extend Map
@@ -84,4 +85,5 @@ class R_
     extend Initial
     extend Set
     extend Pick
+    extend Update
 end

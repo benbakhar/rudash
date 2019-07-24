@@ -762,7 +762,7 @@ hash # => { a: 1, b: 2, c: { x: { y: [2] } } }
 
 ### <a id="_update"></a>`R_.update(object, path, updater)`
 
-This method is like _.set except that accepts updater proc to produce the value to set.
+This method is like R_.set except that accepts updater proc to produce the value to set.
 
 #### Arguments
 `object` *(Hash|Array)*: The object to modify.

@@ -21,6 +21,28 @@ class FilterTest < Test::Unit::TestCase
         ]
     end
 
+    def test_filter_hashes_by_deep_hash
+        persons = [
+            { name: { first: 'islam', last: 'attrash' }, sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'sonia', sex: 'female' }
+        ]
+
+        result = R_.filter(persons, { name: { first: 'islam' } })
+        assert_equal result, [{ name: { first: 'islam' }, sex: 'male' }]
+
+        result2 = R_.filter(persons, { name: { first: 'islamx' } })
+        assert_equal result2, []
+
+        persons = [
+            { name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' },
+            { name: 'sabel', sex: 'female' },
+            { name: 'sonia', sex: 'female' }
+        ]
+
+        assert_equal R_.filter(persons, { name: { first: ['i'] } }), [{ name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' }]
+    end
+
     def test_default_filter
         result = R_.filter([1,0, nil, { a: 1 }])
         assert_equal result, [1, 0, { a: 1 }]

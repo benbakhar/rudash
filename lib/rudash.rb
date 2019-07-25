@@ -43,6 +43,7 @@ require_relative './rudash/pick.rb'
 require_relative './rudash/update.rb'
 require_relative './rudash/slice.rb'
 require_relative './rudash/remove.rb'
+require_relative './rudash/union.rb'
 
 class R_
     extend Map
@@ -90,4 +91,5 @@ class R_
     extend Update
     extend Slice
     extend Remove
+    extend Union
 end

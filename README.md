@@ -94,6 +94,22 @@ R_.intersection([1,2,3], [1,2], [2]) # => [2]
 ```
 * * *
 
+### <a id="_union"></a>`R_.union([arrays])`
+
+Creates an array of unique values, in order, from all given arrays.
+
+#### Arguments
+`[arrays]` *(...Array)*: The arrays to inspect.
+
+#### Returns
+*(Array)*: Returns the new array of combined values.
+
+#### Example
+```ruby
+R_.union([2, 1], [2, 3]) # => [2,1,3]
+```
+* * *
+
 ### <a id="_join"></a>`R_.join(array, [separator = ','])`
 
 Converts all elements in array into a string separated by separator.

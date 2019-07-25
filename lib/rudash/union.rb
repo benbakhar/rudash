@@ -18,8 +18,7 @@ module Union
 
         arr_values = self.filter(values, is_array)
         head = self.head(arr_values)
-        return [] if !head.is_a?(Array)
 
-        self.reduce(arr_values, union_reducer, head)
+        self.reduce(arr_values, union_reducer, head) || []
     end
 end

@@ -1,9 +1,11 @@
 require_relative 'reduce.rb'
 require_relative 'head.rb'
+require_relative 'filter.rb'
 
 module Union
     extend Reduce
     extend Head
+    extend Filter
 
     def union(*values)
 
@@ -12,9 +14,12 @@ module Union
             acc | current
         }
 
-        head = self.head(values)
+        is_array = -> (value) { value.is_a?(Array) }
+
+        arr_values = self.filter(values, is_array)
+        head = self.head(arr_values)
         return [] if !head.is_a?(Array)
 
-        self.reduce(values, union_reducer, head)
+        self.reduce(arr_values, union_reducer, head)
     end
 end

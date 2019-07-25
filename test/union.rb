@@ -18,8 +18,8 @@ class UnionTest < Test::Unit::TestCase
         assert_equal R_.union([1,2,3], [1,2], [2]), [1,2,3]
     end
 
-    def test_arrays_with_mixed_types
-        assert_equal R_.union([1,2,3], [1,2], 2), [1,2,3]
+    def test_starting_no_array
+        assert_equal R_.union(2, [1,2,3], [1,2], 2), [1, 2, 3]
     end
 
     def test_arrays_of_hashes

@@ -1,6 +1,7 @@
 require_relative 'is_nil.rb'
 require_relative 'identity.rb'
 require_relative 'head.rb'
+require_relative '../utils/check_subset_deep_match.rb'
 
 module Filter
     extend IsNil
@@ -10,24 +11,12 @@ module Filter
     def filter(collection, *rest_args)
         filter = self.head(rest_args) || self.method(:identity)
 
-        if collection.is_a?(Array) && filter.is_a?(Hash)
-            filtered_arr = []
-            collection.each do |v|
-                match = true
-                filter.each do |key, value|
-                    if (value != v[key])
-                        match = false
-                        break
-                    end
-                end
+        if filter.is_a?(Hash)
+            slice_matcher = CheckSubsetDeepMatch.check_subset_deep_match.(filter)
+            return self.filter(collection, slice_matcher) 
+        end
 
-                if (match == true)
-                    filtered_arr << v
-                end
-            end
-
-            return filtered_arr
-        elsif collection.is_a?(Array)
+        if collection.is_a?(Array)
             begin
                 return collection.select.with_index { |x, idx| filter[x, idx] }
             rescue ArgumentError => e

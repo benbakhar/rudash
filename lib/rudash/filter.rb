@@ -1,7 +1,7 @@
 require_relative 'is_nil.rb'
 require_relative 'identity.rb'
 require_relative 'head.rb'
-require_relative '../utils/check_subset_deep_match.rb'
+require_relative '../utils/subset_deep_match.rb'
 
 module Filter
     extend IsNil
@@ -12,7 +12,7 @@ module Filter
         filter = self.head(rest_args) || self.method(:identity)
 
         if filter.is_a?(Hash)
-            slice_matcher = CheckSubsetDeepMatch.check_subset_deep_match.(filter)
+            slice_matcher = SubsetDeepMatch.subset_deep_match?.(filter)
             return self.filter(collection, slice_matcher) 
         end
 

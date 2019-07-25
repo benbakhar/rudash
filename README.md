@@ -115,6 +115,29 @@ R_.join(0) # => ''
 ```
 * * *
 
+### <a id="_slice"></a>`R_.slice(array, [start=0], [end=array.size])`
+
+Creates a slice of array from start up to, but not including, end.
+
+#### Arguments
+`array` *(Array)*: The array to slice.
+
+`[start=0]` *(Number)*: The start position.
+
+`[end=array.size]` *(Number)*: The end position.
+
+#### Returns
+*(Array)*: Returns the slice of array.
+
+#### Example
+```ruby
+R_.slice([1,2,3], 0, 2) # => [1,2]
+R_.slice([1,2,3], 1) # => [2,3]
+R_.slice([1,2,3], 1, 2) # => [2]
+R_.slice([1,2,3,4,5,6], 0, 3) # => [1,2,3]
+```
+* * *
+
 ### <a id="_head"></a>`R_.head(array)`
 
 Gets the first element of array.

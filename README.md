@@ -138,6 +138,42 @@ R_.slice([1,2,3,4,5,6], 0, 3) # => [1,2,3]
 ```
 * * *
 
+### <a id="_remove"></a>`R_.remove(array, [predicate=_.identity])`
+
+Removes all elements from array that predicate returns truthy for and returns an array of the removed elements. The predicate is invoked with two arguments: (value, index).
+
+#### Arguments
+`array` *(Array)*: The array to modify.
+
+`[predicate=_.identity]` *(Proc)*: The proc invoked per iteration.
+
+#### Returns
+*(Array)*: Returns the new array of removed elements.
+
+#### Example
+```ruby
+# Simple arrays
+array = [1, 2, 3, 4]
+is_even = -> (v) { v % 2 === 0 }
+removed_items = R_.remove(array, is_even)
+
+removed_items # => [2,4]
+array # => [1,3]
+
+# Array of hashes
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+removed_persons = R_.remove(persons, { sex: 'female' })
+
+removed_persons # => [{ name: 'sabel', sex: 'female' },{ name: 'sonia', sex: 'female' }]
+persons # => [{ name: 'islam', sex: 'male' }]
+```
+* * *
+
 ### <a id="_head"></a>`R_.head(array)`
 
 Gets the first element of array.

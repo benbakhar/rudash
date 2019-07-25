@@ -138,14 +138,14 @@ R_.slice([1,2,3,4,5,6], 0, 3) # => [1,2,3]
 ```
 * * *
 
-### <a id="_remove"></a>`R_.remove(array, [predicate=_.identity])`
+### <a id="_remove"></a>`R_.remove(array, [predicate = R_.identity])`
 
 Removes all elements from array that predicate returns truthy for and returns an array of the removed elements. The predicate is invoked with two arguments: (value, index).
 
 #### Arguments
 `array` *(Array)*: The array to modify.
 
-`[predicate=_.identity]` *(Proc)*: The proc invoked per iteration.
+`[predicate = R_.identity]` *(Proc)*: The proc invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new array of removed elements.

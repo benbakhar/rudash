@@ -8,6 +8,6 @@ module Slice
 
         return [] if !end_point.is_a?(Numeric)
 
-        array.slice(start_point, end_point - 1) || []
+        array.slice(start_point, end_point - start_point) || []
     end
 end

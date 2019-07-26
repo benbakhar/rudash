@@ -12,15 +12,23 @@ module Rudash
     
             if col.is_a?(Array)
                 begin
-                    return col.map.with_index { |value, index| mapper_proc[value, index] }
+                    return col.map.with_index { |value, index| mapper_proc.(value, index) }
                 rescue ArgumentError => e
-                    return col.map { |value| mapper_proc[value] }
+                    begin
+                        return col.map { |value| mapper_proc.(value) }
+                    rescue ArgumentError => e
+                        return col.map { mapper_proc.() }
+                    end
                 end
             elsif col.is_a?(Hash)
                 begin
-                    return col.map { |k,v| mapper_proc[v, k] }
+                    return col.map { |k,v| mapper_proc.(v, k) }
                 rescue ArgumentError => e
-                    return col.map { |k,v| mapper_proc[v] }
+                    begin
+                        return col.map { |k,v| mapper_proc.(v) }
+                    rescue ArgumentError => e
+                        return col.map { mapper_proc.() }
+                    end
                 end
             else
                 return []

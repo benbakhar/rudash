@@ -4,7 +4,7 @@ module Rudash
             case a_proc
                 when Proc
                     negate_proc = -> (*args) {
-                        !a_proc[*args]
+                        !a_proc.(*args)
                     }
                 else
                     raise 'Expected a Proc'

@@ -4,7 +4,7 @@ module Rudash
             flipped_proc = -> (*args) {
                 reveresed_args = args.reverse
     
-                a_proc[*reveresed_args]
+                a_proc.(*reveresed_args)
             }
         end
     end

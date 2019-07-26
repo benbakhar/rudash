@@ -17,15 +17,23 @@ module Rudash
     
             if collection.is_a?(Array)
                 begin
-                    return collection.select.with_index { |x, idx| filter[x, idx] }
+                    return collection.select.with_index { |x, idx| filter.(x, idx) }
                 rescue ArgumentError => e
-                    return collection.select { |x| filter[x] }
+                    begin
+                        return collection.select { |x| filter.(x) }
+                    rescue ArgumentError => e
+                        return collection.select { filter.() }
+                    end
                 end
             elsif collection.is_a?(Hash)
                 begin
-                    return collection.select { |k, v| filter[v, k] }
+                    return collection.select { |k, v| filter.(v, k) }
                 rescue ArgumentError => e
-                    return collection.select { |k, v| filter[v] }
+                    begin
+                        return collection.select { |k, v| filter.(v) }
+                    rescue ArgumentError => e
+                        return collection.select { filter.() }
+                    end
                 end
             else
                 return []

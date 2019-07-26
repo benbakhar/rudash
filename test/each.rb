@@ -14,6 +14,14 @@ class EachTest < Test::Unit::TestCase
         assert_equal R_.each('islam'), 'islam'
     end
     
+    def test_eacher_without_args
+        array = [1,2,3]
+        new_array = []
+        eacher = -> () { new_array << 'item' }
+        R_.each(array, eacher)
+        assert_equal new_array, ['item', 'item', 'item']
+    end
+
     def test_array_values
         array = [1,2,3]
         new_array = []

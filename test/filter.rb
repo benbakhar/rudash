@@ -29,7 +29,7 @@ class FilterTest < Test::Unit::TestCase
         ]
 
         result = R_.filter(persons, { name: { first: 'islam' } })
-        assert_equal result, [{ name: { first: 'islam' }, sex: 'male' }]
+        assert_equal result, [{ name: { first: 'islam', last: 'attrash' }, sex: 'male' }]
 
         result2 = R_.filter(persons, { name: { first: 'islamx' } })
         assert_equal result2, []
@@ -40,7 +40,8 @@ class FilterTest < Test::Unit::TestCase
             { name: 'sonia', sex: 'female' }
         ]
 
-        assert_equal R_.filter(persons, { name: { first: ['i'] } }), [{ name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' }]
+        result3 = R_.filter(persons, { name: { first: ['i'] } })
+        assert_equal result3, [{ name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' }]
     end
 
     def test_default_filter

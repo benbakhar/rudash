@@ -1,7 +1,7 @@
 require_relative '../rudash'
 
 # This module was written to supply complex subset deep hash and array matching
-# in order to give filter, some?, every? and find the ability to deep match with complex hash queries.
+# in order to give R_.filter, R_.some?, R_.every? and R_.find the ability to deep match with complex hash queries.
 # See test_filter_hashes_by_deep_hash (test/filter.rb)
 
 module Rudash

@@ -1,3 +1,5 @@
+# This module will contain tiny general utilities
+
 module Rudash
     module Utils
         def self.match_number?(str)

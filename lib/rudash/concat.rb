@@ -1,9 +1,5 @@
-require_relative 'is_nil.rb'
-
 module Rudash
     module Concat
-        extend Rudash
-
         def concat(head, *values)
             head_arr = head.is_a?(Array) ? head : [head]
             if values.size == 0

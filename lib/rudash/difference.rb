@@ -1,9 +1,5 @@
-require_relative 'reduce.rb'
-
 module Rudash
     module Difference
-        extend Rudash
-    
         def difference(*values)
             diff_reducer = -> (acc, current) {
                 return [] if !acc.is_a?(Array)

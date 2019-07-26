@@ -1,10 +1,5 @@
-require_relative 'head.rb'
-require_relative 'identity.rb'
-
 module Rudash
     module Map
-        extend Rudash
-    
         def map(collection, *rest_args)
             mapper_proc = self.head(rest_args) || self.method(:identity)
     

@@ -1,12 +1,7 @@
-require_relative 'is_nil.rb'
-require_relative 'identity.rb'
-require_relative 'head.rb'
 require_relative '../utils/subset_deep_match.rb'
 
 module Rudash
     module Filter
-        extend Rudash
-    
         def filter(collection, *rest_args)
             filter = self.head(rest_args) || self.method(:identity)
     

@@ -1,9 +1,5 @@
-require_relative 'reduce.rb'
-
 module Rudash
     module Intersection
-        extend Rudash
-    
         def intersection(*values)
     
             intersection_reducer = -> (acc, current) {

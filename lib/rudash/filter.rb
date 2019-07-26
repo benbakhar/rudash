@@ -22,7 +22,7 @@ module Rudash
                     begin
                         return collection.select { |x| filter.(x) }
                     rescue ArgumentError => e
-                        return collection.select { || filter.() }
+                        return collection.select { filter.() }
                     end
                 end
             elsif collection.is_a?(Hash)
@@ -32,7 +32,7 @@ module Rudash
                     begin
                         return collection.select { |k, v| filter.(v) }
                     rescue ArgumentError => e
-                        return collection.select { || filter.() }
+                        return collection.select { filter.() }
                     end
                 end
             else

@@ -17,7 +17,7 @@ module Rudash
                     begin
                         return col.map { |value| mapper_proc.(value) }
                     rescue ArgumentError => e
-                        return col.map { || mapper_proc.() }
+                        return col.map { mapper_proc.() }
                     end
                 end
             elsif col.is_a?(Hash)
@@ -27,7 +27,7 @@ module Rudash
                     begin
                         return col.map { |k,v| mapper_proc.(v) }
                     rescue ArgumentError => e
-                        return col.map { || mapper_proc.() }
+                        return col.map { mapper_proc.() }
                     end
                 end
             else

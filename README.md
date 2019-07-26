@@ -32,6 +32,12 @@ R_.map(array, double) # => [2,4,6]
 is_even = -> (value) { value % 2 === 0 }
 array = [1,2,3,4]
 R_.filter(array, is_even) # => [2,4]
+
+# You can also use inline anonymous function style
+array = [1,2,3,4]
+R_.filter(array,  -> (value) {
+    value % 2 === 0
+}) # => [2,4]
 ```
 
 # API

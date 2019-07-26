@@ -2,29 +2,32 @@ require_relative '../rudash'
 
 # This module was written to supply complex subset deep hash and array matching
 # in order to give filter, some?, every? and find the ability to deep match with complex hash queries.
-# See test_filter_hashes_by_deep_hash (filter.rb)
+# See test_filter_hashes_by_deep_hash (test/filter.rb)
 
 module SubsetDeepMatch
     def self.subset_deep_match?
-        subset_matcher = -> (slice, hash) {
+        subset_matcher = -> (slice, collection) {
             match = true
 
-            if (slice.is_a?(Array) && hash.is_a?(Array))
+            # If was called with two arrays then the logic will be to
+            # check if every "slice" items exist somehow in the collection
+            # without any order consideration.
+            if (slice.is_a?(Array) && collection.is_a?(Array))
                 return R_.every?(slice, -> (sliceVal) {
-                    R_.some?(hash, -> (hashVal) {
-                        self.subset_deep_match?.(sliceVal, hashVal)
+                    R_.some?(collection, -> (collectionVal) {
+                        self.subset_deep_match?.(sliceVal, collectionVal)
                     })
                 })
             end
 
             begin
-                R_.each(hash, -> (v) {
+                R_.each(collection, -> (v) {
                     R_.each(slice, -> (value, key) {
-                        if (value.is_a?(Hash) && hash[key].is_a?(Hash))
-                            match &= self.subset_deep_match?.(value, hash[key])
-                        elsif (value.is_a?(Array) && hash[key].is_a?(Array))
-                            match &= self.subset_deep_match?.(value, hash[key])
-                        elsif (value != hash[key])
+                        if (value.is_a?(Hash) && collection[key].is_a?(Hash))
+                            match &= self.subset_deep_match?.(value, collection[key])
+                        elsif (value.is_a?(Array) && collection[key].is_a?(Array))
+                            match &= self.subset_deep_match?.(value, collection[key])
+                        elsif (value != collection[key])
                             match = false
                         end
                     })

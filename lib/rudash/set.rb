@@ -1,12 +1,9 @@
 require_relative '../utils/path_resolver.rb'
 require_relative '../utils/nested_path_creator.rb'
 require_relative '../utils/index.rb'
-require_relative 'get.rb'
 
 module Rudash
     module Set
-        extend Rudash
-    
         def set(object, path, value)
             return object if !object.is_a?(Hash) && !object.is_a?(Array)
     

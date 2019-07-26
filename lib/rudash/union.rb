@@ -1,11 +1,5 @@
-require_relative 'reduce.rb'
-require_relative 'head.rb'
-require_relative 'filter.rb'
-
 module Rudash
     module Union
-        extend Rudash
-    
         def union(*values)
     
             union_reducer = -> (acc, current) {

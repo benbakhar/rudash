@@ -18,15 +18,15 @@ module Filter
 
         if collection.is_a?(Array)
             begin
-                return collection.select.with_index { |x, idx| filter[x, idx] }
+                return collection.select.with_index { |x, idx| filter.(x, idx) }
             rescue ArgumentError => e
-                return collection.select { |x| filter[x] }
+                return collection.select { |x| filter.(x) }
             end
         elsif collection.is_a?(Hash)
             begin
-                return collection.select { |k, v| filter[v, k] }
+                return collection.select { |k, v| filter.(v, k) }
             rescue ArgumentError => e
-                return collection.select { |k, v| filter[v] }
+                return collection.select { |k, v| filter.(v) }
             end
         else
             return []

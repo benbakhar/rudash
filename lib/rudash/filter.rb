@@ -22,12 +22,12 @@ module Rudash
                 end
             elsif collection.is_a?(Hash)
                 begin
-                    return collection.select { |k, v| filter.(v, k) }
+                    return collection.select { |k, v| filter.(v, k) }.values
                 rescue ArgumentError => e
                     begin
-                        return collection.select { |k, v| filter.(v) }
+                        return collection.select { |k, v| filter.(v) }.values
                     rescue ArgumentError => e
-                        return collection.select { filter.() }
+                        return collection.select { filter.() }.values
                     end
                 end
             else

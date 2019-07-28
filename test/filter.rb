@@ -51,19 +51,19 @@ class FilterTest < Test::Unit::TestCase
 
     def test_hash_without_filter
         result = R_.filter({ a: 1, b: nil })
-        assert_equal result, { a: 1 }
+        assert_equal result, [1]
     end
 
     def test_hash_with_value_filter
         is_even = -> (v, k) { v % 2 === 0 }
         result = R_.filter({ a: 1, b: 2, c: 3, d: 4 }, is_even)
-        assert_equal result, { b: 2, d: 4 }
+        assert_equal result, [2, 4]
     end
 
     def test_hash_with_key_filter
         key_bigger_than_a = -> (v, k) { k > :a }
         result = R_.filter({ a: 1, b: 2, c: 3, d: 4 }, key_bigger_than_a)
-        assert_equal result, { b: 2, c: 3, d: 4 }
+        assert_equal result, [2,3,4]
     end
 
     def test_no_collection

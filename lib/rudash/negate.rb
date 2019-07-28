@@ -2,7 +2,7 @@ module Rudash
     module Negate
         def negate(a_proc)
             case a_proc
-                when Proc
+                when Proc, Method
                     negate_proc = -> (*args) {
                         !a_proc.(*args)
                     }

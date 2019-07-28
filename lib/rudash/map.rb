@@ -1,9 +1,12 @@
+require_relative '../utils/index.rb'
+
 module Rudash
     module Map
         def map(collection, *rest_args)
             mapper_proc = self.head(rest_args) || self.method(:identity)
-    
             col = collection.is_a?(String) ? collection.split('') : collection
+
+            return self.map(collection, -> () { nil }) if !Rudash::Utils.is_function?(mapper_proc)
     
             if col.is_a?(Array)
                 begin

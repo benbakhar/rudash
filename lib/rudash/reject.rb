@@ -1,3 +1,4 @@
+require_relative '../utils/index.rb'
 require_relative '../utils/subset_deep_match.rb'
 
 module Rudash
@@ -8,7 +9,7 @@ module Rudash
             if filter.is_a?(Hash)
                 slice_matcher = Rudash::SubsetDeepMatch.subset_deep_match?.(filter)
                 return self.filter(collection, self.negate(slice_matcher)) 
-            elsif filter.is_a?(Proc) || filter.is_a?(Method)
+            elsif Rudash::Utils.is_function?(filter)
                 return self.filter(collection, self.negate(filter))
             else
                 return []

@@ -13,4 +13,10 @@ class NegateTest < Test::Unit::TestCase
 
         assert_equal R_.filter([1,2,3,4], is_odd), [1,3]
     end
+
+    def test_negate_not_function
+        assert_raise do
+            R_.negate(5)
+        end
+    end
 end

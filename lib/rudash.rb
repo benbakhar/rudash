@@ -20,7 +20,6 @@ require_relative './rudash/is_array.rb'
 require_relative './rudash/is_equal.rb'
 require_relative './rudash/is_hash.rb'
 require_relative './rudash/is_empty.rb'
-require_relative './rudash/is_proc.rb'
 require_relative './rudash/reverse.rb'
 require_relative './rudash/curry.rb'
 require_relative './rudash/is_number.rb'
@@ -72,7 +71,6 @@ class R_
     extend Rudash::IsEqual
     extend Rudash::IsHash
     extend Rudash::IsEmpty
-    extend Rudash::IsProc
     extend Rudash::Reverse
     extend Rudash::Curry
     extend Rudash::IsNumber

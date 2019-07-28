@@ -49,6 +49,11 @@ class FilterTest < Test::Unit::TestCase
         assert_equal result, [1, 0, { a: 1 }]
     end
 
+    def test_filter_with_wrong_proc
+        result = R_.filter([1,0, nil, { a: 1 }], 5)
+        assert_equal result, []
+    end
+
     def test_hash_without_filter
         result = R_.filter({ a: 1, b: nil })
         assert_equal result, [1]

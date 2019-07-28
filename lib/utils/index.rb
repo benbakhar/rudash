@@ -6,6 +6,10 @@ module Rudash
             return false if !str.is_a?(String)
             str.match(/^(\d)+$/)
         end
+
+        def self.is_function?(func)
+            func.is_a?(Proc) || func.is_a?(Method)
+        end
     
         def self.force_reverse(collection)
             case collection

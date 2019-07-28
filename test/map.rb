@@ -8,6 +8,11 @@ class MapTest < Test::Unit::TestCase
         assert_equal result, [2,4,6]
     end
 
+    def test_not_proc
+        result = R_.map([1,2,3], 6)
+        assert_equal result, [nil, nil, nil]
+    end
+
     def test_double_even_indexes
         double_even_index = -> (value, index) {
             index % 2 === 0 ? value * 2 : value

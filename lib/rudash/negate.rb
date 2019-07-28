@@ -1,14 +1,13 @@
+require_relative '../utils/index.rb'
+
 module Rudash
     module Negate
         def negate(a_proc)
-            case a_proc
-                when Proc, Method
-                    negate_proc = -> (*args) {
-                        !a_proc.(*args)
-                    }
-                else
-                    raise 'Expected a Proc'
-            end
+            raise 'Expected a Proc/Method' if !Rudash::Utils.is_function?(a_proc)
+
+            negate_proc = -> (*args) {
+                !a_proc.(*args)
+            }
         end
     end
 end

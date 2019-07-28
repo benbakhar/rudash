@@ -1,6 +1,10 @@
+require_relative '../utils/index.rb'
+
 module Rudash
     module Flip
         def flip(a_proc)
+            raise 'Expected a Proc/Method' if !Rudash::Utils.is_function?(a_proc)
+
             flipped_proc = -> (*args) {
                 reveresed_args = args.reverse
     

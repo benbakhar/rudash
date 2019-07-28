@@ -45,6 +45,9 @@ require_relative './rudash/slice.rb'
 require_relative './rudash/remove.rb'
 require_relative './rudash/union.rb'
 
+# This is the exposed Gem class that contains all Rudash methods.
+# New methods can use already implemented methods in the library by refering to "self"
+# in the method if and only if the method get extended into the R_ class.
 class R_
     extend Rudash::Map
     extend Rudash::IsNil

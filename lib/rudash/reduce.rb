@@ -24,7 +24,7 @@ module Rudash
                         if col.is_a?(Hash)
                             Rudash::DynamicArgsCount.call(reducer, acc, current[1], current[0])
                         else
-                            reducer.(acc, current)
+                            Rudash::DynamicArgsCount.call(reducer, acc, current)
                         end
                     }
                 else

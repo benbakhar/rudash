@@ -21,6 +21,13 @@ class UpdateTest < Test::Unit::TestCase
         assert_equal hash, { a: [{ b: { c: 9 } }] }
     end
 
+    def test_updater_no_args
+        hash = { a: [{ b: { c: 3 } }] };
+        manipulate_self = -> () { 1 }
+        R_.update(hash, 'a[0].b.c', manipulate_self)
+        assert_equal hash, { a: [{ b: { c: 1 } }] }
+    end
+
     def test_not_exist_path
         hash = { a: [{ b: { c: 3 } }] }
 

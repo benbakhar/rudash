@@ -1,4 +1,5 @@
 require_relative '../utils/index.rb'
+require_relative '../utils/dynamic_args_count.rb'
 
 module Rudash
     module Update
@@ -7,7 +8,7 @@ module Rudash
             return object if !Rudash::Utils.is_function?(updater)
 
             current_value = self.get(object, path)
-            self.set(object, path, updater.(current_value))
+            self.set(object, path, Rudash::DynamicArgsCount.call(updater, current_value))
             object
         end
     end

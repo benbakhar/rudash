@@ -1,12 +1,7 @@
 module Rudash
     module Capitalize
         def capitalize(value)
-            case value
-                when String
-                    value.capitalize
-                else
-                    value.to_s
-            end
+            value.is_a?(String) ? value.capitalize : value.to_s
         end
     end
 end

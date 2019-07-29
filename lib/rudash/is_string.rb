@@ -1,12 +1,7 @@
 module Rudash
     module IsString
         def is_string?(object)
-            case object
-                when String
-                    true
-                else
-                    false
-            end
+            object.is_a?(String)
         end
     end
 end

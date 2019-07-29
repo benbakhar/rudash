@@ -1,4 +1,5 @@
 require_relative '../utils/index.rb'
+require_relative '../utils/dynamic_args_count.rb'
 
 module Rudash
     module Map
@@ -9,25 +10,13 @@ module Rudash
             return self.map(collection, -> () { nil }) if !Rudash::Utils.is_function?(mapper_proc)
     
             if col.is_a?(Array)
-                begin
-                    return col.map.with_index { |value, index| mapper_proc.(value, index) }
-                rescue ArgumentError => e
-                    begin
-                        return col.map { |value| mapper_proc.(value) }
-                    rescue ArgumentError => e
-                        return col.map { mapper_proc.() }
-                    end
-                end
+                return col.map.with_index { |value, index|
+                    Rudash::DynamicArgsCount.call(mapper_proc, value, index)
+                }
             elsif col.is_a?(Hash)
-                begin
-                    return col.map { |k,v| mapper_proc.(v, k) }
-                rescue ArgumentError => e
-                    begin
-                        return col.map { |k,v| mapper_proc.(v) }
-                    rescue ArgumentError => e
-                        return col.map { mapper_proc.() }
-                    end
-                end
+                return col.map { |k,v|
+                    Rudash::DynamicArgsCount.call(mapper_proc, v, k)
+                }
             else
                 return []
             end

@@ -1,5 +1,6 @@
 require_relative '../utils/index.rb'
 require_relative '../utils/subset_deep_match.rb'
+require_relative '../utils/dynamic_args_count.rb'
 
 module Rudash
     module Filter
@@ -14,25 +15,13 @@ module Rudash
             return [] if !Rudash::Utils.is_function?(filter)
     
             if collection.is_a?(Array)
-                begin
-                    return collection.select.with_index { |x, idx| filter.(x, idx) }
-                rescue ArgumentError => e
-                    begin
-                        return collection.select { |x| filter.(x) }
-                    rescue ArgumentError => e
-                        return collection.select { filter.() }
-                    end
-                end
+                return collection.select.with_index { |x, idx|
+                    Rudash::DynamicArgsCount.call(filter, x, idx)
+                }
             elsif collection.is_a?(Hash)
-                begin
-                    return collection.select { |k, v| filter.(v, k) }.values
-                rescue ArgumentError => e
-                    begin
-                        return collection.select { |k, v| filter.(v) }.values
-                    rescue ArgumentError => e
-                        return collection.select { filter.() }.values
-                    end
-                end
+                return collection.select { |k, v|
+                    Rudash::DynamicArgsCount.call(filter, v, k)
+                }.values
             else
                 return []
             end

@@ -1037,6 +1037,38 @@ R_.identity(1, 2) # => 1
 ```
 * * *
 
+### <a id="_range"></a>`R_.range([start=0], end, [step=1])`
+
+Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end. A step of -1 is used if a negative start is specified without an end or step. If end is not specified, it's set to start with start then set to 0.
+
+#### Arguments
+`[start=0]` *(Number)*: The start of the range.
+
+`end` *(Number)*: The end of the range.
+
+`[step=1]` *(Number)*: The value to increment or decrement by.
+
+#### Returns
+*(Array)*: Returns the range of numbers.
+
+#### Example
+```ruby
+R_.range(4) # => [0, 1, 2, 3]
+
+R_.range(-4) # => [0, -1, -2, -3]
+
+R_.range(1, 5) # => [1, 2, 3, 4]
+
+R_.range(0, 20, 5) # => [0, 5, 10, 15]
+
+R_.range(0, -4, -1) # => [0, -1, -2, -3]
+
+R_.range(1, 4, 0) # => [1, 1, 1]
+
+R_.range(0) # => []
+```
+* * *
+
 ## “Lang” Methods
 
 ### <a id="_is_nil"></a>`R_.is_nil?(value)`

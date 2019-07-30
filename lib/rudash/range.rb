@@ -14,25 +14,25 @@ module Rudash
                     start_step, end_step = args
                 else
                     start_step, end_step, step_jump = args
-                    step_configured = true
+                    step_jump_configured = true
             end
 
             # step_jump direction (+/-) should be defined by start/end values
             norm_step_jump = (end_step > start_step ? step_jump.abs : -step_jump.abs)
 
             # illegal behaviors
-            return [] if (norm_step_jump != step_jump && step_configured)
+            return [] if (norm_step_jump != step_jump && step_jump_configured)
             # End illegal behavior
 
             iterator = start_step
             result = []
             
-            # calculate step count
+            # calculate loop count
             boundaries = [start_step, end_step]
             max = boundaries.max
             min = boundaries.min
             i = (norm_step_jump == 0 ? (max - min) : ((max - min).to_f / norm_step_jump)).abs
-            # end step calculation
+            # end loop calculation
 
             while i > 0
                 result << iterator

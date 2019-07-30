@@ -1,8 +1,8 @@
 module Rudash
     module FindLast
         def find_last(collection, *rest_args)
-            filter_proc = self.head(rest_args) || self.method(:identity)
-            filtered_arr = self.filter(collection, filter_proc)
+            iteratee_fn = self.head(rest_args)
+            filtered_arr = self.filter(collection, iteratee_fn)
             
             filtered_arr[filtered_arr.length - 1]
         end

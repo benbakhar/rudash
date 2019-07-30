@@ -5,22 +5,22 @@ require_relative '../utils/dynamic_args_count.rb'
 module Rudash
     module Filter
         def filter(collection, *rest_args)
-            filter = self.head(rest_args) || self.method(:identity)
+            predicate_fn = self.head(rest_args) || self.method(:identity)
     
-            if filter.is_a?(Hash)
-                slice_matcher = Rudash::SubsetDeepMatch.subset_deep_match?.(filter)
+            if predicate_fn.is_a?(Hash)
+                slice_matcher = Rudash::SubsetDeepMatch.subset_deep_match?.(predicate_fn)
                 return self.filter(collection, slice_matcher) 
             end
 
-            return [] if !Rudash::Utils.is_function?(filter)
+            return [] if !Rudash::Utils.is_function?(predicate_fn)
     
             if collection.is_a?(Array)
                 return collection.select.with_index { |x, idx|
-                    Rudash::DynamicArgsCount.call(filter, x, idx)
+                    Rudash::DynamicArgsCount.call(predicate_fn, x, idx)
                 }
             elsif collection.is_a?(Hash)
                 return collection.select { |k, v|
-                    Rudash::DynamicArgsCount.call(filter, v, k)
+                    Rudash::DynamicArgsCount.call(predicate_fn, v, k)
                 }.values
             else
                 return []

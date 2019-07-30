@@ -166,14 +166,14 @@ R_.slice([1,2,3,4,5,6], 0, 3) # => [1,2,3]
 ```
 * * *
 
-### <a id="_remove"></a>`R_.remove(array, [predicate = R_.identity])`
+### <a id="_remove"></a>`R_.remove(array, [predicate_fn = R_.identity])`
 
 Removes all elements from array that predicate returns truthy for and returns an array of the removed elements. The predicate is invoked with two arguments: (value, index).
 
 #### Arguments
 `array` *(Array)*: The array to modify.
 
-`[predicate = R_.identity]` *(Proc)*: The proc invoked per iteration.
+`[predicate_fn = R_.identity]` *(Proc)*: The proc invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new array of removed elements.
@@ -348,7 +348,7 @@ R_.without(arr1, 2, 3) # => [1]
 
 ## `“Collection” Methods`
 
-### <a id="_each"></a>`R_.each(collection, iteratee_proc = R_.identity)`
+### <a id="_each"></a>`R_.each(collection, iteratee_fn = R_.identity)`
 
 Iterates over elements of collection and invokes iteratee for each element. The iteratee is invoked with two arguments: (value, index|key).
 
@@ -358,7 +358,7 @@ R_.for_each
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(Proc)*: The proc function invoked per iteration.
+`iteratee_fn` *(Proc)*: The proc function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns collection.
@@ -382,7 +382,7 @@ new_array # => [1,2,3]
 ```
 * * *
 
-### <a id="_each_right"></a>`R_.each_right(collection, iteratee_proc = R_.identity)`
+### <a id="_each_right"></a>`R_.each_right(collection, iteratee_fn = R_.identity)`
 
 This method is like R_.each except that it iterates over elements of collection from right to left.
 
@@ -392,7 +392,7 @@ R_.for_each_right
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(Proc)*: The proc function invoked per iteration.
+`iteratee_fn` *(Proc)*: The proc function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns collection.
@@ -417,14 +417,14 @@ new_array # => [3,2,1]
 * * *
 
 
-### <a id="_every"></a>`R_.every?(array, predicate_proc)`
+### <a id="_every"></a>`R_.every?(array, predicate_fn)`
 
 Checks if predicate returns truthy for all elements of array.
 
 #### Arguments
 `array` *(Array)*: The collection to iterate over.
 
-`predicate_proc` *(Proc)*: The proc function invoked per iteration.
+`predicate_fn` *(Proc)*: The proc function invoked per iteration.
 
 #### Returns
 *(boolean)*: Returns true if all elements pass the predicate check, else false.
@@ -444,14 +444,14 @@ R_.every?(persons, { sex: 'male' }) # => false
 ```
 * * *
 
-### <a id="_filter"></a>`R_.filter(collection, predicate_proc = R_.identity)`
+### <a id="_filter"></a>`R_.filter(collection, predicate_fn = R_.identity)`
 
 Iterates over elements of collection, returning an array of all elements predicate returns truthy for. The predicate is invoked with two arguments: [value, index|key]
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`predicate_proc` *(Proc)*: The function invoked per iteration.
+`predicate_fn` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new filtered array.
@@ -474,11 +474,45 @@ R_.filter(persons, { sex: 'female' })
 
 # Filtering hash
 is_even = -> (v, k) { v % 2 === 0 }
-R_.filter({ a: 1, b: 2, c: 3, d: 4 }, is_even) # => { b: 2, d: 4 }
+R_.filter({ a: 1, b: 2, c: 3, d: 4 }, is_even) # => [2,4]
 ```
 * * *
 
-### <a id="_map"></a>`R_.map(collection, iteratee_proc = R_.identity)`
+### <a id="_reject"></a>`R_.reject(collection, predicate_fn = R_.identity)`
+
+The opposite of R_.filter, this method returns the elements of collection that predicate does not return truthy for.
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+
+`predicate_fn` *(Proc)*: The function invoked per iteration.
+
+#### Returns
+*(Array)*: Returns the new filtered array.
+
+#### Example
+```ruby
+# Filtering array
+is_even = -> (value) { value % 2 === 0 }
+R_.reject([1,2,3,4], is_even) # => [1,3]
+
+# Filtering array of hashes
+persons = [
+    { name: 'islam', sex: 'male' },
+    { name: 'sabel', sex: 'female' },
+    { name: 'sonia', sex: 'female' }
+]
+
+R_.reject(persons, { sex: 'female' })
+# => [{ name: 'islam', sex: 'male' }]
+
+# Filtering hash
+is_even = -> (v, k) { v % 2 === 0 }
+R_.reject({ a: 1, b: 2, c: 3, d: 4 }, is_even) # => [1,3]
+```
+* * *
+
+### <a id="_map"></a>`R_.map(collection, iteratee_fn = R_.identity)`
 
 Creates an array of values by running each element in collection thru iteratee. The iteratee is invoked with two arguments:
 [value, index|key].
@@ -486,7 +520,7 @@ Creates an array of values by running each element in collection thru iteratee. 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(Proc)*: The function invoked per iteration.
+`iteratee_fn` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Array)*: Returns the new mapped array.
@@ -519,14 +553,14 @@ R_.map('islam', add_e_to_even_indexes) # => ["ie", "s", "le", "a", "me"]
 ```
 * * *
 
-### <a id="_find"></a>`R_.find(collection, iteratee_proc = R_.identity)`
+### <a id="_find"></a>`R_.find(collection, iteratee_fn = R_.identity)`
 
 Iterates over elements of collection, returning the first element predicate returns truthy for. The predicate is invoked with two arguments: (value, index|key).
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to inspect.
 
-`iteratee_proc` *(Proc)*: The function invoked per iteration.
+`iteratee_fn` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns the matched element, else nil.
@@ -547,14 +581,14 @@ R_.find(persons, { sex: 'female' }) # => { name: 'sabel', sex: 'female' }
 ```
 * * *
 
-### <a id="_find_last"></a>`R_.find_last(collection, iteratee_proc = R_.identity)`
+### <a id="_find_last"></a>`R_.find_last(collection, iteratee_fn = R_.identity)`
 
 This method is like R_.find except that it iterates over elements of collection from right to left.
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to inspect.
 
-`iteratee_proc` *(Proc)*: The function invoked per iteration.
+`iteratee_fn` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(\*)*: Returns the matched element, else nil.
@@ -575,7 +609,7 @@ R_.find_last(persons, { sex: 'female' }) # => { name: 'sonia', sex: 'female' }
 ```
 * * *
 
-### <a id="_reduce"></a>`R_.reduce(collection, iteratee_proc = R_.identity, accumulator*)`
+### <a id="_reduce"></a>`R_.reduce(collection, iteratee_fn = R_.identity, accumulator*)`
 
 Reduces collection to a value which is the accumulated result of running each element in collection thru iteratee, where each successive invocation is supplied the return value of the previous. If accumulator is not given, the first element of collection is used as the initial value. The iteratee is invoked with four arguments:
 (accumulator, value, index|key).
@@ -583,7 +617,7 @@ Reduces collection to a value which is the accumulated result of running each el
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(Proc)*: The function invoked per iteration.
+`iteratee_fn` *(Proc)*: The function invoked per iteration.
 
 `accumulator` *(Any)*: The initial value.
 
@@ -615,14 +649,14 @@ R_.reduce('islam', joiner) # => 'i,s,l,a,m'
 ```
 * * *
 
-### <a id="_reduce_right"></a>`R_.reduce_right(collection, iteratee_proc = R_.identity, accumulator*)`
+### <a id="_reduce_right"></a>`R_.reduce_right(collection, iteratee_fn = R_.identity, accumulator*)`
 
 This method is like _.reduce except that it iterates over elements of collection from right to left.
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`iteratee_proc` *(Proc)*: The function invoked per iteration.
+`iteratee_fn` *(Proc)*: The function invoked per iteration.
 
 `accumulator` *(Any)*: The initial value.
 
@@ -644,14 +678,14 @@ R_.reduce_right(hash, hash_sumer, 0) # => 3
 ```
 * * *
 
-### <a id="_some"></a>`R_.some?(collection, predicate_proc = R_.identity)`
+### <a id="_some"></a>`R_.some?(collection, predicate_fn = R_.identity)`
 
 Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy. The predicate is invoked with two arguments: (value, index|key).
 
 #### Arguments
 `collection` *(Array|Hash)*: The collection to iterate over.
 
-`predicate_proc` *(Proc)*: The function invoked per iteration.
+`predicate_fn` *(Proc)*: The function invoked per iteration.
 
 #### Returns
 *(Boolean)*: Returns true if any element passes the predicate check, else false.
@@ -712,12 +746,12 @@ R_.reverse('islam') # => 'malsi'
 
 ## `“Function” Methods`
 
-### <a id="_flip"></a>`R_.flip(a_proc)`
+### <a id="_flip"></a>`R_.flip(func)`
 
 Creates a proc that invokes the passed proc with arguments reversed.
 
 #### Arguments
-`a_proc` *(Proc)*: The proc to flip arguments for.
+`func` *(Proc)*: The proc to flip arguments for.
 
 #### Returns
 *(Proc)*: Returns the new flipped proc.
@@ -732,12 +766,12 @@ flipped_subtract.(2, 1) # => -1
 ```
 * * *
 
-### <a id="_negate"></a>`R_.negate(a_proc)`
+### <a id="_negate"></a>`R_.negate(func)`
 
 Creates a proc that negates the result of the passed proc.
 
 #### Arguments
-`a_proc` *(Proc)*: The proc to negate.
+`func` *(Proc)*: The proc to negate.
 
 #### Returns
 *(Proc)*: Returns the new negated proc.
@@ -756,12 +790,12 @@ R_.filter([1,2,3,4], is_odd) # => [1,3]
 ```
 * * *
 
-### <a id="_curry"></a>`R_.curry(a_proc)`
+### <a id="_curry"></a>`R_.curry(func)`
 
 Creates a proc that accepts arguments of proc and either invokes proc returning its result, if at least arity number of arguments have been provided, or returns a proc that accepts the remaining func arguments, and so on.
 
 #### Arguments
-`a_proc` *(Proc)*: The proc to curry.
+`func` *(Proc)*: The proc to curry.
 
 #### Returns
 *(Proc)*: Returns the new curried proc.
@@ -847,7 +881,7 @@ hash # => { a: 1, b: 2, c: { x: { y: [2] } } }
 ```
 * * *
 
-### <a id="_update"></a>`R_.update(object, path, updater)`
+### <a id="_update"></a>`R_.update(object, path, updater_fn)`
 
 This method is like R_.set except that accepts updater proc to produce the value to set.
 
@@ -856,7 +890,7 @@ This method is like R_.set except that accepts updater proc to produce the value
 
 `path` *(String)*: The path of the property to set.
 
-`updater` *(Proc)*: The proc to produce the updated value depends on the current value.
+`updater_fn` *(Proc)*: The proc to produce the updated value depends on the current value.
 
 #### Returns
 *(Hash|Array)*: Returns object.

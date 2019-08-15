@@ -766,6 +766,25 @@ flipped_subtract.(2, 1) # => -1
 ```
 * * *
 
+### <a id="_group_by"></a>`R_.group_by(collection, iteratee)`
+
+Creates an object composed of keys generated from the results of running each element of collection thru iteratee. The order of grouped values is determined by the order they occur in collection. The corresponding value of each key is an array of elements responsible for generating the key. The iteratee is invoked with one argument: (value).
+
+#### Arguments
+`collection` *(Array|Hash)*: The collection to iterate over.
+`[iteratee=_.identity]` (Proc): The iteratee to transform keys.
+
+#### Returns
+*(Object)*: Returns the composed aggregate object.
+
+#### Example
+```ruby
+iteratee = ->(value) { value.floor }
+R_.group_by([6.1, 4.2, 6.3], iteratee);
+# => { '4': [4.2], '6': [6.1, 6.3] }
+```
+* * *
+
 ### <a id="_negate"></a>`R_.negate(func)`
 
 Creates a proc that negates the result of the passed proc.

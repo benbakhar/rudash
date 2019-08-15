@@ -45,6 +45,7 @@ require_relative './rudash/remove.rb'
 require_relative './rudash/union.rb'
 require_relative './rudash/reject.rb'
 require_relative './rudash/range.rb'
+require_relative './rudash/group_by.rb'
 
 # This is the exposed Gem class that contains all Rudash methods.
 # New methods can use already implemented methods in the library by refering to "self"
@@ -97,4 +98,5 @@ class R_
     extend Rudash::Union
     extend Rudash::Reject
     extend Rudash::Range
+    extend Rudash::GroupBy
 end

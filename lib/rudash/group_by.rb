@@ -2,7 +2,7 @@ module Rudash
     module GroupBy
         def group_by(collection, iteratee = self.method(:identity))
 
-            reducer = ->(acc, current) {
+            reducer = -> (acc, current) {
                 key = Rudash::DynamicArgsCount.call(iteratee, current)
 
                 if acc[key]

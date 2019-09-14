@@ -1,6 +1,7 @@
 module Rudash
     module GroupBy
-        def group_by(collection, iteratee = self.method(:identity))
+        def group_by(collection, *rest_args)
+            iteratee = self.head(rest_args) || self.method(:identity)
 
             reducer = -> (acc, current) {
                 key = Rudash::DynamicArgsCount.call(iteratee, current)

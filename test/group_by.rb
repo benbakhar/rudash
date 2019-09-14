@@ -9,6 +9,14 @@ class GroupByTest < Test::Unit::TestCase
         assert_equal R_.group_by(collection), expected
     end
 
+    def test_nil
+        collection = [6.1, 4.2, 6.3]
+        expected = { 6.1 => [6.1], 4.2 => [4.2], 6.3 => [6.3] }
+
+        assert_equal R_.group_by(collection, nil), expected
+    end
+
+
     def test_with_iterator_fn
         collection = [6.1, 4.2, 6.3]
         iterator = ->(value) { value.floor }

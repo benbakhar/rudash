@@ -52,7 +52,7 @@ Some notes to be aware of:
 
 - Remember that all Rudash functions are aligned with Ruby community style guidelines, which means that "isNil" becomes "is_nil?", and "groupBy" will be "group_by".
 
-- Perfect PR should look like this one: #73 
+- Perfect PR should look like this one: [#73](https://github.com/Attrash-Islam/rudash/pull/73) 
 
 - Make sure to be aligned to the semantic versioning. In here, adding new functions will cause bumping the minor version, fixing some already implemented logic causes bumping the patch version.
 

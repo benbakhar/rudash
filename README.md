@@ -1282,3 +1282,32 @@ R_.eq?(hash1, hash2) # => false
 R_.eq?(hash1, hash1) # => false
 ```
 * * *
+
+
+## `“Seq” Methods`
+
+### <a id="_chain"></a>`R_.chain(value)`
+
+Creates a Rudash wrapper instance that wraps value with explicit method chain sequences enabled. The result of such sequences must be unwrapped with value().
+
+#### Arguments
+`value` *(*)*: The value to wrap.
+
+#### Returns
+*(Object)*: Returns the new Rudash wrapper instance.
+
+#### Example
+```ruby
+filter_even = -> (number) { number % 2 == 0 }
+inc_by_one = -> (number) { number + 1 }
+
+# You can chain using all Rudash functions.
+# Pay attention that we are not sending the data ([1,2,3,4])
+# in the arguments since it is been sent by the wrapped value
+result = R_.chain([1,2,3,4])
+            .filter(filter_even)
+            .map(inc_by_one)
+            .head()
+            .value() # => 3
+```
+* * *

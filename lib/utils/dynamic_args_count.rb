@@ -10,7 +10,7 @@ module Rudash
             begin
                 return func.(*args)
             rescue ArgumentError => e
-                raise 'Argument Error' if args.size == 0
+                raise ArgumentError.new('Argument Error') if args.size == 0
                 *initial, last = args
                 return self.call(func, *initial)
             end

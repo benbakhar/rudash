@@ -1291,7 +1291,7 @@ R_.eq?(hash1, hash1) # => false
 Creates a Rudash wrapper instance that wraps value with explicit method chain sequences enabled. The result of such sequences must be unwrapped with value().
 
 #### Arguments
-`value` *(*)*: The value to wrap.
+`value` *(\*)*: The value to wrap.
 
 #### Returns
 *(Object)*: Returns the new Rudash wrapper instance.

@@ -383,6 +383,26 @@ R_.without(arr1, 2, 3) # => [1]
 ```
 * * *
 
+### <a id="_drop_right"></a>`R_.drop_right(array, [n=1])`
+
+Creates a slice of `array` with `n` elements dropped from the end.
+
+#### Arguments
+`array` *(Array)*: The array to inspect.
+`[n=1]` *(number)*: The number of elements to drop.
+
+#### Returns
+*(Array)*: Returns the slice of `array`.
+
+#### Example
+```ruby
+array = [1, 2, 3]
+
+R_.drop_right(array) # => [1, 2]
+R_.drop_right(array, 2) # => [1]
+```
+* * *
+
 ## `“Collection” Methods`
 
 ### <a id="_each"></a>`R_.each(collection, iteratee_fn = R_.identity)`

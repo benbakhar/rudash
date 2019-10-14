@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name = %q{rudash}
-    s.version = '2.13.0'
+    s.version = '2.14.0'
     s.date = %q{2019-07-07}
     s.authors = ['Islam Attrash']
     s.email = 'isattrash@gmail.com'

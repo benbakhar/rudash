@@ -11,13 +11,10 @@ module Rudash
             end
 
             def method_missing(method_name, *args, &block)
-                begin
-                    method = @r_.method(method_name.to_s)
-                    result = method.(@value, *args)
+                    result = @r_.public_send(method_name, @value, *args)
                     self.class.new(result, @r_)
-                rescue NameError => exception
-                    raise NameError.new("\"#{method_name}\" doesn't exist in Rudash")
-                end
+            rescue NameError
+                raise NameError.new("\"#{method_name}\" doesn't exist in Rudash")
             end
         end
     end

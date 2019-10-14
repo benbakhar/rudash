@@ -50,7 +50,7 @@ require_relative './rudash/take.rb'
 require_relative './rudash/drop_right.rb'
 require_relative './rudash/chain.rb'
 
-require_relative './utils/chain_wrpper.rb'
+require_relative './utils/chain_wrapper.rb'
 
 # This is the exposed Gem class that contains all Rudash methods.
 # New methods can use already implemented methods in the library by refering to "self"

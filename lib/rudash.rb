@@ -47,6 +47,7 @@ require_relative './rudash/reject.rb'
 require_relative './rudash/range.rb'
 require_relative './rudash/group_by.rb'
 require_relative './rudash/take.rb'
+require_relative './rudash/drop_right.rb'
 require_relative './rudash/chain.rb'
 
 require_relative './utils/chain_wrpper.rb'
@@ -104,5 +105,6 @@ class R_
     extend Rudash::Range
     extend Rudash::GroupBy
     extend Rudash::Take
+    extend Rudash::DropRight
     extend Rudash::Chain
 end

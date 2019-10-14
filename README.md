@@ -1,5 +1,10 @@
 # Rudash
 
+[![Gem Version](https://badge.fury.io/rb/rudash.svg)](https://badge.fury.io/rb/rudash)
+[![Build Status](https://travis-ci.com/Attrash-Islam/rudash.svg?branch=master)](https://travis-ci.com/Attrash-Islam/rudash)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 The <a href="https://lodash.com">Lodash</a> popular JavaScript library exported as a Gem for Ruby developers.
 
 ## Installation

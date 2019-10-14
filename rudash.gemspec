@@ -1,6 +1,8 @@
+require_relative './lib/version.rb'
+
 Gem::Specification.new do |s|
-    s.name = %q{rudash}
-    s.version = '2.14.0'
+    s.name = 'rudash'
+    s.version = Rudash::VERSION
     s.date = %q{2019-07-07}
     s.authors = ['Islam Attrash']
     s.email = 'isattrash@gmail.com'

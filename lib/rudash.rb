@@ -48,6 +48,9 @@ require_relative './rudash/range.rb'
 require_relative './rudash/group_by.rb'
 require_relative './rudash/take.rb'
 require_relative './rudash/drop_right.rb'
+require_relative './rudash/chain.rb'
+
+require_relative './utils/chain_wrapper.rb'
 
 # This is the exposed Gem class that contains all Rudash methods.
 # New methods can use already implemented methods in the library by refering to "self"
@@ -103,4 +106,5 @@ class R_
     extend Rudash::GroupBy
     extend Rudash::Take
     extend Rudash::DropRight
+    extend Rudash::Chain
 end

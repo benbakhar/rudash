@@ -7,7 +7,7 @@ module Rudash
 
             flow_proc = -> (*args) {
                 self.reduce(flatten_funs, -> (acc, fn) {
-                    fn.(*acc)
+                    Rudash::DynamicArgsCount.call(fn, *self.concat(acc))
                 }, args)
             }
         end

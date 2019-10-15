@@ -20,10 +20,9 @@ class FlowTest < Test::Unit::TestCase
 
     def test_hash
         hash = { a: 1 }
-        set_path = R_.curry(-> (path, value, _) {
-            p "updating #{path} with #{value} in hash"
-            R_.update(hash, path, -> () { value })
-        })
+        set_path = -> (path, value) {
+            -> () { R_.update(hash, path, -> () { value }) }
+        }
 
         composed = R_.flow([
             set_path.('a', 5),
@@ -32,6 +31,7 @@ class FlowTest < Test::Unit::TestCase
         ])
 
         result = composed.()
-        p result
+        expected = { a: 5, b: { b: 1 }, c: 'string' }
+        assert_equal expected, hash
     end
 end

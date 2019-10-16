@@ -1,7 +1,3 @@
-require_relative '../utils/index.rb'
-require_relative '../utils/subset_deep_match.rb'
-require_relative '../utils/dynamic_args_count.rb'
-
 module Rudash
     module Filter
         def filter(collection, *rest_args)

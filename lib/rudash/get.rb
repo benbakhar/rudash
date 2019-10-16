@@ -1,6 +1,3 @@
-require_relative '../utils/path_resolver.rb'
-require_relative '../utils/index.rb'
-
 module Rudash
     module Get
         def get(hash, path, *rest_args)

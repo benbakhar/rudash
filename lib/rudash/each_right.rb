@@ -1,5 +1,3 @@
-require_relative '../utils/index.rb'
-
 module Rudash
     module EachRight
         def each_right(collection, *rest_args)

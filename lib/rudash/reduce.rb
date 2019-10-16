@@ -1,6 +1,3 @@
-require_relative '../utils/index.rb'
-require_relative '../utils/dynamic_args_count.rb'
-
 module Rudash
     module Reduce
         def reduce(collection, *rest_args)

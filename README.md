@@ -1093,6 +1093,25 @@ composed.(10, 20) # => 1800
 ```
 * * *
 
+### <a id="_flow_right"></a>`R_.flow_right([funs])`
+
+This method is like `R_.flow` except that it creates a function that invokes the given functions from right to left.
+
+#### Arguments
+`[funcs]` *(Function|Function[])*: The functions to invoke.
+
+#### Returns
+*(Function)*: Returns the new composite function.
+
+#### Example
+```ruby
+square = -> (number) { number * number }
+double = -> (number) { number * 2 }
+composed = R_.flow([square, double])
+composed.(10, 20) # => 400
+```
+* * *
+
 ### <a id="_identity"></a>`R_.identity(value)`
 
 This method returns the first argument it receives.

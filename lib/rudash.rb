@@ -50,6 +50,7 @@ require_relative './rudash/take.rb'
 require_relative './rudash/drop_right.rb'
 require_relative './rudash/chain.rb'
 require_relative './rudash/flow.rb'
+require_relative './rudash/flow_right.rb'
 
 require_relative './utils/chain_wrapper.rb'
 
@@ -109,4 +110,5 @@ class R_
     extend Rudash::DropRight
     extend Rudash::Chain
     extend Rudash::Flow
+    extend Rudash::FlowRight
 end

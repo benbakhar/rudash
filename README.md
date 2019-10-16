@@ -945,7 +945,7 @@ Removes the property at `path` of `object`.
 `path` *(String)*: The path of the property to unset.
 
 #### Returns
-*(boolean)*: Returns `true` if the property is deleted, else `false`.
+*(boolean)*: Returns `true` if the property exists, else `false`.
 
 * * *
 

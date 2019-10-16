@@ -1,5 +1,3 @@
-require_relative '../utils/index.rb'
-
 module Rudash
     module FlowRight
         def flow_right(*funs)

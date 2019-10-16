@@ -1,7 +1,3 @@
-require_relative '../utils/path_resolver.rb'
-require_relative '../utils/nested_path_creator.rb'
-require_relative '../utils/index.rb'
-
 module Rudash
     module Set
         def set(object, path, value)

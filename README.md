@@ -1087,6 +1087,45 @@ R_.capitalize('fiverr') # =>'Fiverr'
 
 ## `“Util” Methods`
 
+### <a id="_flow"></a>`R_.flow([funs])`
+
+Creates a function that returns the result of invoking the given functions with the this binding of the created function, where each successive invocation is supplied the return value of the previous.
+
+#### Arguments
+`[funcs]` *(Function|Function[])*: The functions to invoke.
+
+#### Returns
+*(Function)*: Returns the new composite function.
+
+#### Example
+```ruby
+inc_two_numbers = -> (num1, num2) { num1 + num2 }
+square = -> (number) { number * number }
+double = -> (number) { number * 2 }
+composed = R_.flow([inc_two_numbers, square, double])
+composed.(10, 20) # => 1800
+```
+* * *
+
+### <a id="_flow_right"></a>`R_.flow_right([funs])`
+
+This method is like `R_.flow` except that it creates a function that invokes the given functions from right to left.
+
+#### Arguments
+`[funcs]` *(Function|Function[])*: The functions to invoke.
+
+#### Returns
+*(Function)*: Returns the new composite function.
+
+#### Example
+```ruby
+square = -> (number) { number * number }
+double = -> (number) { number * 2 }
+composed = R_.flow([square, double])
+composed.(10, 20) # => 400
+```
+* * *
+
 ### <a id="_identity"></a>`R_.identity(value)`
 
 This method returns the first argument it receives.

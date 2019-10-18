@@ -1,6 +1,3 @@
-require_relative '../utils/index.rb'
-require_relative '../utils/dynamic_args_count.rb'
-
 module Rudash
     module Update
         def update(object, path, *rest_args)

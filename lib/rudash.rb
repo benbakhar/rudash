@@ -49,8 +49,16 @@ require_relative './rudash/group_by.rb'
 require_relative './rudash/take.rb'
 require_relative './rudash/drop_right.rb'
 require_relative './rudash/chain.rb'
+require_relative './rudash/flow.rb'
+require_relative './rudash/flow_right.rb'
 require_relative './rudash/unset.rb'
 
+### Utils Requires
+require_relative './utils/index.rb'
+require_relative './utils/dynamic_args_count.rb'
+require_relative './utils/path_resolver.rb'
+require_relative './utils/subset_deep_match.rb'
+require_relative './utils/nested_path_creator.rb'
 require_relative './utils/chain_wrapper.rb'
 
 # This is the exposed Gem class that contains all Rudash methods.
@@ -108,5 +116,7 @@ class R_
     extend Rudash::Take
     extend Rudash::DropRight
     extend Rudash::Chain
+    extend Rudash::Flow
+    extend Rudash::FlowRight
     extend Rudash::Unset
 end

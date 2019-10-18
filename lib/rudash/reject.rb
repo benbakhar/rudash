@@ -1,6 +1,3 @@
-require_relative '../utils/index.rb'
-require_relative '../utils/subset_deep_match.rb'
-
 module Rudash
     module Reject
         def reject(collection, *rest_args)

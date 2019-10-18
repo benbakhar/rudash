@@ -3,5 +3,4 @@ sudo: false
 rvm:
   - 2.2.7
 script:
-  - gem install test-unit
-  - ruby test-runner.rb
+  - bundle exec rake test

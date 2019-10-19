@@ -21,6 +21,6 @@ Some notes to be aware of:
 
 - All Rudash functions **MUST** be aligned with Ruby community style guidelines, which means that "isNil" becomes "is_nil?", and "groupBy" will be "group_by".
 
-- You must **ALWAYS** bump the version in your PRs `(/lib/version.rb)`. Make sure to be aligned to the semantic versioning. In here, adding new functions will cause bumping the minor version, fixing some already implemented logic causes bumping the patch version.
+- You must bump the version in your PRs when needed `(/lib/version.rb)`. Make sure to be aligned to the semantic versioning. In here, adding new functions will cause bumping the minor version, fixing some already implemented logic causes bumping the patch version.
 
 - Perfect PR should look like this one: [#98](https://github.com/Attrash-Islam/rudash/pull/98) 

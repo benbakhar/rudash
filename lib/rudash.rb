@@ -51,6 +51,7 @@ require_relative './rudash/drop_right.rb'
 require_relative './rudash/chain.rb'
 require_relative './rudash/flow.rb'
 require_relative './rudash/flow_right.rb'
+require_relative './rudash/unset.rb'
 
 ### Utils Requires
 require_relative './utils/index.rb'
@@ -117,4 +118,5 @@ class R_
     extend Rudash::Chain
     extend Rudash::Flow
     extend Rudash::FlowRight
+    extend Rudash::Unset
 end

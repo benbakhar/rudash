@@ -935,6 +935,20 @@ hash # => { a: 1, b: 2, c: { x: { y: [2] } } }
 ```
 * * *
 
+### <a id="_unset"></a>`R_.unset(object, path)`
+
+Removes the property at `path` of `object`.
+
+#### Arguments
+`object` *(Hash|Array)*: The object to modify.
+
+`path` *(String)*: The path of the property to unset.
+
+#### Returns
+*(boolean)*: Returns `true` if the property exists, else `false`.
+
+* * *
+
 ### <a id="_update"></a>`R_.update(object, path, updater_fn)`
 
 This method is like R_.set except that accepts updater proc to produce the value to set.

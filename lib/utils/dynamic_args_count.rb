@@ -5,15 +5,15 @@
 # to the developer defined Proc and if it's failed because of ArgumentError we call it recursively with less argument until success.
 
 module Rudash
-    module DynamicArgsCount
-        def self.call(func, *args)
-            begin
-                return func.(*args)
-            rescue ArgumentError => e
-                raise ArgumentError.new('Argument Error') if args.size == 0
-                *initial, last = args
-                return self.call(func, *initial)
-            end
-        end
+  module DynamicArgsCount
+    def self.call(func, *args)
+      begin
+        return func.(*args)
+      rescue ArgumentError => e
+        raise ArgumentError.new('Argument Error') if args.size == 0
+        *initial, last = args
+        return self.call(func, *initial)
+      end
     end
+  end
 end

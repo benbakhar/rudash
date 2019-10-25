@@ -11,7 +11,7 @@ ruby ./test/reduce.rb
 
 Some notes to be aware of:
 
-- You **MUST** be aligned to the Lodash behavior as much as possible.
+- You **MUST** be aligned to the Lodash behavior as much as possible. (I try cases in the console of the [Lodash website](https://lodash.com).)
 
 - You **MUST** write some cases in a unit test file that cover as much cases as possible.
 

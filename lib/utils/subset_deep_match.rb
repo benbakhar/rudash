@@ -39,7 +39,7 @@ module Rudash
             # It's the same hack for JavaScript forEach function.
             raise if match == false
           })
-        rescue
+        rescue StandardError
           return false
         end
 

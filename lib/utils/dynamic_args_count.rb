@@ -8,9 +8,8 @@ module Rudash
   module DynamicArgsCount
     def self.call(func, *args)
       func.call(*args)
-
     rescue ArgumentError
-      raise ArgumentError.new('Argument Error') if args.size.zero?
+      raise ArgumentError, 'Argument Error' if args.size.zero?
 
       *initial, _last = args
       self.call(func, *initial)

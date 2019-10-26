@@ -3,7 +3,7 @@ require 'test/unit'
 
 class ReduceTest < Test::Unit::TestCase
   def test_sum_reducer
-    sumer = -> (acc, current) {
+    sumer = ->(acc, current) {
       acc + current
     }
     
@@ -15,7 +15,7 @@ class ReduceTest < Test::Unit::TestCase
   end
   
   def test_string_reduce
-    joiner = -> (acc, current) {
+    joiner = ->(acc, current) {
       acc + ',' + current
     }
     
@@ -24,7 +24,7 @@ class ReduceTest < Test::Unit::TestCase
   
   def test_sum_hash_values
     hash = { a: 1, b: 2 }
-    hash_sumer = -> (acc, current) { acc + current }
+    hash_sumer = ->(acc, current) { acc + current }
     result = R_.reduce(hash,hash_sumer, 0)
     
     assert_equal result, 3
@@ -32,7 +32,7 @@ class ReduceTest < Test::Unit::TestCase
   
   def test_sum_hash_key
     hash = { a: 1, b: 2 }
-    hash_sumer = -> (acc, value, key) { key }
+    hash_sumer = ->(acc, value, key) { key }
     result = R_.reduce(hash,hash_sumer)
     
     assert_equal result, :b

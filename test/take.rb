@@ -3,18 +3,18 @@ require 'test/unit'
 
 class TakeTest < Test::Unit::TestCase
   def test_array_no_args
-    result = R_.take([1,2,3])
+    result = R_.take([1, 2, 3])
     assert_equal result, [1]
   end
   
   def test_array_negative_count
-    result = R_.take([1,2,3], -5)
+    result = R_.take([1, 2, 3], -5)
     assert_equal result, []
   end
   
   def test_array_postitive_count
-    result = R_.take([1,2,3], 2)
-    assert_equal result, [1,2]
+    result = R_.take([1, 2, 3], 2)
+    assert_equal result, [1, 2]
   end
   
   def test_empty_array

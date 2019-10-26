@@ -7,13 +7,13 @@ class IsEqualTest < Test::Unit::TestCase
     hash2 = { a: 1 }
     assert_equal R_.is_equal?(hash1, hash2), true
   end
-  
+
   def test_complex_hashes
     hash1 = { a: { b: 2 } }
     hash2 = { a: { b: 2 } }
     assert_equal R_.is_equal?(hash1, hash2), true
   end
-  
+
   def test_different_hashes
     hash1 = { a: { b: 2 } }
     hash2 = { a: { c: 2 } }

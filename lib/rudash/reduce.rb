@@ -5,7 +5,7 @@ module Rudash
       initial_state = rest_args[1]
       col = collection.is_a?(String) ? collection.split('') : collection
 
-      return self.reduce(collection, -> () { nil }) unless Rudash::Utils.is_function?(reducer)
+      return self.reduce(collection, -> { nil }) unless Rudash::Utils.is_function?(reducer)
 
       case rest_args.size
       when 1

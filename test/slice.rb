@@ -8,10 +8,10 @@ class SliceTest < Test::Unit::TestCase
   end
   
   def test_array
-    assert_equal R_.slice([1,2,3], 0, 2), [1,2]
-    assert_equal R_.slice([1,2,3], 1), [2,3]
-    assert_equal R_.slice([1,2,3], 1, 2), [2]
-    assert_equal R_.slice([1,2,3,4,5,6], 0, 3), [1,2,3]
+    assert_equal R_.slice([1, 2, 3], 0, 2), [1, 2]
+    assert_equal R_.slice([1, 2, 3], 1), [2,3]
+    assert_equal R_.slice([1, 2, 3], 1, 2), [2]
+    assert_equal R_.slice([1,2,3,4,5,6], 0, 3), [1, 2, 3]
     assert_equal R_.slice([1,2,3,4,5,6], 2, 5), [3,4,5]
   end
   
@@ -20,12 +20,12 @@ class SliceTest < Test::Unit::TestCase
   end
   
   def test_end_bigger_than_array_size
-    assert_equal R_.slice([1,2,3], 0, 353533534), [1,2,3]
-    assert_equal R_.slice([1,2,3], 353533534), []
+    assert_equal R_.slice([1, 2, 3], 0, 353533534), [1, 2, 3]
+    assert_equal R_.slice([1, 2, 3], 353533534), []
   end
   
   def test_wrong_inputs
-    assert_equal R_.slice([1,2,3], 0, 's'), []
-    assert_equal R_.slice([1,2,3], 's', 's'), []
+    assert_equal R_.slice([1, 2, 3], 0, 's'), []
+    assert_equal R_.slice([1, 2, 3], 's', 's'), []
   end
 end

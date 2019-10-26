@@ -38,7 +38,7 @@ class SetTest < Test::Unit::TestCase
   end
   
   def test_array
-    array = [1,2,3]
+    array = [1, 2, 3]
     R_.set(array, '0', 2)
     assert_equal array, [2,2,3]
     array = [{a: 55}]

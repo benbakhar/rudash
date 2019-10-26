@@ -6,7 +6,7 @@ module Rudash
       ->(*args) {
         reveresed_args = args.reverse
 
-        a_proc.(*reveresed_args)
+        a_proc.call(*reveresed_args)
       }
     end
   end

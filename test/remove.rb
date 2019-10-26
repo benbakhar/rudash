@@ -13,13 +13,13 @@ class RemoveTest < Test::Unit::TestCase
   def test_remove_all
     array = [1, 2, 3, 4]
     removed_items = R_.remove(array)
-    assert_equal removed_items, [1,2,3,4]
+    assert_equal removed_items, [1, 2, 3, 4]
     assert_equal array, []
   end
   
   def test_predicate
     array = [1, 2, 3, 4]
-    is_even = -> (v) { v % 2 === 0 }
+    is_even = ->(v) { v.even? }
     removed_items = R_.remove(array, is_even)
     assert_equal removed_items, [2,4]
     assert_equal array, [1,3]

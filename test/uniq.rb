@@ -15,6 +15,6 @@ class UniqTest < Test::Unit::TestCase
   end
   
   def test_array
-    assert_equal R_.uniq([1, 2, 2, 3, 3, 3]), [1,2,3]
+    assert_equal R_.uniq([1, 2, 2, 3, 3, 3]), [1, 2, 3]
   end
 end

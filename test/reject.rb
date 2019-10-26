@@ -3,8 +3,8 @@ require 'test/unit'
 
 class RejectTest < Test::Unit::TestCase
   def test_reject_evens
-    is_even = -> (value) { value % 2 === 0 }
-    result = R_.reject([1,2,3,4], is_even)
+    is_even = ->(value) { value.even? }
+    result = R_.reject([1, 2, 3, 4], is_even)
     assert_equal result, [1,3]
   end
   
@@ -64,13 +64,13 @@ class RejectTest < Test::Unit::TestCase
   end
   
   def test_hash_with_value_reject
-    is_even = -> (v, k) { v % 2 === 0 }
+    is_even = ->(v, k) { v.even? }
     result = R_.reject({ a: 1, b: 2, c: 3, d: 4 }, is_even)
     assert_equal result, [1,3]
   end
   
   def test_hash_with_key_reject
-    key_bigger_than_a = -> (v, k) { k > :a }
+    key_bigger_than_a = ->(v, k) { k > :a }
     result = R_.reject({ a: 1, b: 2, c: 3, d: 4 }, key_bigger_than_a)
     assert_equal result, [1]
   end

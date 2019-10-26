@@ -3,7 +3,7 @@ require 'test/unit'
 
 class TailTest < Test::Unit::TestCase
   def test_regular_array
-    result = R_.tail([1,2,3])
+    result = R_.tail([1, 2, 3])
     assert_equal result, [2,3]
   end
   

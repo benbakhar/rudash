@@ -33,7 +33,7 @@ class PickTest < Test::Unit::TestCase
   end
   
   def test_array
-    array = [1,2,3]
+    array = [1, 2, 3]
     picked_item = R_.pick(array, ['1'])
     assert_equal picked_item, {}
   end

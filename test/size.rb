@@ -3,7 +3,7 @@ require 'test/unit'
 
 class SizeTest < Test::Unit::TestCase
   def test_array
-    assert_equal R_.size([1,2,3]), 3
+    assert_equal R_.size([1, 2, 3]), 3
   end
   
   def test_nil
@@ -11,7 +11,7 @@ class SizeTest < Test::Unit::TestCase
   end
   
   def test_hash
-    assert_equal R_.size({a: 1, b: 2}), 2
+    assert_equal R_.size({ a: 1, b: 2 }), 2
   end
   
   def test_string

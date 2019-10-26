@@ -4,8 +4,8 @@ module Rudash
       filter = self.head(rest_args) || self.method(:identity)
 
       if filter.is_a?(Hash)
-        slice_matcher = Rudash::SubsetDeepMatch.subset_deep_match?.(filter)
-        return self.filter(collection, self.negate(slice_matcher)) 
+        slice_matcher = Rudash::SubsetDeepMatch.subset_deep_match?.call(filter)
+        return self.filter(collection, self.negate(slice_matcher))
       elsif Rudash::Utils.is_function?(filter)
         return self.filter(collection, self.negate(filter))
       else

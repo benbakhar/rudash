@@ -33,7 +33,7 @@ class GetTest < Test::Unit::TestCase
     assert_equal R_.get(hash, 'a.b.c.0.a'), 1
     assert_equal R_.get(hash, 'a.b.c[0].a'), 1
 
-    array_path = %w[a b c 0 a]
+    array_path = ['a', 'b', 'c', '0', 'a']
     assert_equal R_.get(hash, array_path), 1
     assert_equal R_.get(hash, 'a.b.c.xvx.a'), nil
   end

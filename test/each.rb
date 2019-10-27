@@ -19,7 +19,7 @@ class EachTest < Test::Unit::TestCase
     new_array = []
     eacher = -> { new_array << 'item' }
     R_.each(array, eacher)
-    assert_equal new_array, %w[item item item]
+    assert_equal new_array, ['item', 'item', 'item']
   end
 
   def test_array_values
@@ -51,7 +51,7 @@ class EachTest < Test::Unit::TestCase
     new_array = []
     eacher = ->(_value, key) { new_array << key }
     R_.each(hash, eacher)
-    assert_equal new_array, %i[a b]
+    assert_equal new_array, [:a, :b]
   end
 
   def test_alias

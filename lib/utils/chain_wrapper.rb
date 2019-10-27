@@ -3,14 +3,14 @@ module Rudash
     class ChainWrapper
       attr_reader :value
 
-      def initialize(value, r_)
+      def initialize(value, ru_)
         @value = value
-        @r_ = r_
+        @ru_ = ru_
       end
 
       def method_missing(method_name, *args, &_block)
-        result = @r_.public_send(method_name, @value, *args)
-        self.class.new(result, @r_)
+        result = @ru_.public_send(method_name, @value, *args)
+        self.class.new(result, @ru_)
       rescue NameError
         raise NameError, "\"#{method_name}\" doesn't exist in Rudash"
       end

@@ -1178,7 +1178,7 @@ R_.range(0) # => []
 
 ## “Lang” Methods
 
-### <a id="_is_nil"></a>`R_.is_nil?(value)`
+### <a id="_is_nil"></a>`R_.nil?(value)`
 
 Checks if value is nil.
 
@@ -1190,13 +1190,13 @@ Checks if value is nil.
 
 #### Example
 ```ruby
-R_.is_nil?(nil) # => true
+R_.nil?(nil) # => true
 
-R_.is_nil?(0) # => false
+R_.nil?(0) # => false
 ```
 * * *
 
-### <a id="_is_string"></a>`R_.is_string?(value)`
+### <a id="_is_string"></a>`R_.string?(value)`
 
 Checks if value is string.
 
@@ -1208,14 +1208,14 @@ Checks if value is string.
 
 #### Example
 ```ruby
-R_.is_string?(nil) # => false
+R_.string?(nil) # => false
 
-R_.is_string?('str') # => true
+R_.string?('str') # => true
 ```
 * * *
 
 
-### <a id="_is_array"></a>`R_.is_array?(value)`
+### <a id="_is_array"></a>`R_.array?(value)`
 
 Checks if value is classified as an Array object.
 
@@ -1227,13 +1227,13 @@ Checks if value is classified as an Array object.
 
 #### Example
 ```ruby
-R_.is_array?([1, 2, 3]) # => true
+R_.array?([1, 2, 3]) # => true
 
-R_.is_array?({ a: 1 }) # => false
+R_.array?({ a: 1 }) # => false
 ```
 * * *
 
-### <a id="_is_hash"></a>`R_.is_hash?(value)`
+### <a id="_is_hash"></a>`R_.hash?(value)`
 
 Checks if value is classified as an Hash object.
 
@@ -1245,13 +1245,13 @@ Checks if value is classified as an Hash object.
 
 #### Example
 ```ruby
-R_.is_hash?([1, 2, 3]) # => false
+R_.hash?([1, 2, 3]) # => false
 
-R_.is_hash?({ a: 1 }) # => true
+R_.hash?({ a: 1 }) # => true
 ```
 * * *
 
-### <a id="_is_number"></a>`R_.is_number?(value)`
+### <a id="_is_number"></a>`R_.number?(value)`
 
 Checks if value is classified as an Numeric object.
 
@@ -1263,13 +1263,13 @@ Checks if value is classified as an Numeric object.
 
 #### Example
 ```ruby
-R_.is_number?(56) # => true
+R_.number?(56) # => true
 
-R_.is_number?({ a: 1 }) # => false
+R_.number?({ a: 1 }) # => false
 ```
 * * *
 
-### <a id="_is_empty"></a>`R_.is_empty?(value)`
+### <a id="_is_empty"></a>`R_.empty?(value)`
 
 Checks if value is an empty collection.
 
@@ -1281,17 +1281,17 @@ Checks if value is an empty collection.
 
 #### Example
 ```ruby
-R_.is_empty?([1, 2, 3]) # => false
+R_.empty?([1, 2, 3]) # => false
 
-R_.is_empty?({ a: 1 }) # => false
+R_.empty?({ a: 1 }) # => false
 
-R_.is_empty?([]) # => true
+R_.empty?([]) # => true
 
-R_.is_empty?({}) # => true
+R_.empty?({}) # => true
 ```
 * * *
 
-### <a id="_is_equal"></a>`R_.is_equal?(value, other)`
+### <a id="_is_equal"></a>`R_.equal?(value, other)`
 
 Performs a deep comparison between two values to determine if they are equivalent.
 
@@ -1308,7 +1308,7 @@ Performs a deep comparison between two values to determine if they are equivalen
 hash1 = { a: { b: 2 } }
 hash2 = { a: { b: 2 } }
 
-R_.is_equal?(hash1, hash2) # => true
+R_.equal?(hash1, hash2) # => true
 ```
 * * *
 

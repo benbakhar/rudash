@@ -36,13 +36,13 @@ class FilterTest < Test::Unit::TestCase
     assert_equal result2, []
 
     persons = [
-      { name: { first: %w[islam i], last: 'attrash' }, sex: 'male' },
+      { name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' },
       { name: 'sabel', sex: 'female' },
       { name: 'sonia', sex: 'female' }
     ]
 
     result3 = R_.filter(persons, name: { first: ['i'] })
-    expected = [{ name: { first: %w[islam i], last: 'attrash' }, sex: 'male' }]
+    expected = [{ name: { first: ['islam', 'i'], last: 'attrash' }, sex: 'male' }]
     assert_equal result3, expected
   end
 

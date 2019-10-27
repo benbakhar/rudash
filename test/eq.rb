@@ -16,7 +16,7 @@ class EqTest < Test::Unit::TestCase
   def test_hashs
     hash1 = { a: 1 }
     assert_equal R_.eq?(hash1, hash1), true
-    assert_equal R_.eq?(hash1, a: 1 ), false
+    assert_equal R_.eq?(hash1, a: 1), false
   end
 
   def test_arrays

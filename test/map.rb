@@ -33,6 +33,6 @@ class MapTest < Test::Unit::TestCase
       index.even? ? value + 'e' : value
     }
     result = R_.map('islam', add_e_to_even_indexes)
-    assert_equal result, %w[ie s le a me]
+    assert_equal result, ['ie', 's', 'le', 'a', 'me']
   end
 end

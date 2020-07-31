@@ -1,13 +1,9 @@
-require_relative '../utils/index.rb'
-
 module Rudash
-    module Negate
-        def negate(a_proc)
-            raise 'Expected a Proc/Method' if !Rudash::Utils.is_function?(a_proc)
+  module Default
+    def negate(a_lambda)
+      raise 'Expected a lambda/Method' unless Rudash::Utils.function?(a_lambda)
 
-            negate_proc = -> (*args) {
-                !a_proc.(*args)
-            }
-        end
+      ->(*args) { !a_lambda.call(*args) }
     end
+  end
 end

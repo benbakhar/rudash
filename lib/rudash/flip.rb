@@ -1,15 +1,13 @@
-require_relative '../utils/index.rb'
-
 module Rudash
-    module Flip
-        def flip(a_proc)
-            raise 'Expected a Proc/Method' if !Rudash::Utils.is_function?(a_proc)
+  module Default
+    def flip(a_lambda)
+      raise 'Expected a lambda/Method' unless Rudash::Utils.function?(a_lambda)
 
-            flipped_proc = -> (*args) {
-                reveresed_args = args.reverse
-    
-                a_proc.(*reveresed_args)
-            }
-        end
+      ->(*args) {
+        reveresed_args = args.reverse
+
+        a_lambda.call(*reveresed_args)
+      }
     end
+  end
 end
